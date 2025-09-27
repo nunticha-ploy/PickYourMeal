@@ -1,0 +1,22 @@
+{
+  "name": "pickyourmeal",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nunticha-ploy/PickYourMeal.git"
+  },
+  "author": "Nunticha Thummee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nunticha-ploy/PickYourMeal/issues"
+  },
+  "homepage": "https://github.com/nunticha-ploy/PickYourMeal#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
