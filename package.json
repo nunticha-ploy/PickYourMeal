@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -15,8 +16,12 @@
     "url": "https://github.com/nunticha-ploy/PickYourMeal/issues"
   },
   "homepage": "https://github.com/nunticha-ploy/PickYourMeal#readme",
-  "description": "",
   "dependencies": {
     "express": "^5.1.0"
+  },
+  "keywords": [],
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
