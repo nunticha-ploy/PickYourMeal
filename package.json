@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/nunticha-ploy/PickYourMeal#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mongoose": "^8.19.1"
   },
   "keywords": [],
   "devDependencies": {
