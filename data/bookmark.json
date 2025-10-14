@@ -1,0 +1,22 @@
+[
+    {
+        "user": "user1",
+        "name": "comfort meal",
+        "menuItems": ["menu1", "menu2"]
+    },
+    {
+        "user": "user2",
+        "name": "later",
+        "menuItems": ["menu10", "menu12"]
+    },
+    {
+        "user": "user2",
+        "name": "comfort meal",
+        "menuItems": ["menu1", "menu2"]
+    },
+    {
+        "user": "user1",
+        "name": "love",
+        "menuItems": ["menu20", "menu21"]
+    }
+]

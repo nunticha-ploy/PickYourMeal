@@ -1,0 +1,442 @@
+[
+    {
+        "title": "Pasta-Shell Risotto with Broccoli Rabe",
+        "description": "Slowly cooking the pasta risotto-style by ladling hot broth over it allows the shells to soak up all of the broth's aroma and results in a velvety, creamy texture. The bitter bite of the greens adds just enough edge.",
+        "ingredients": [
+            "1 quart reduced-sodium chicken broth",
+            "1 quart water",
+            "1 bunch broccoli rabe",
+            "1/4 cup olive oil",
+            "1 medium onion, chopped",
+            "2 garlic cloves, chopped",
+            "1 lb medium pasta shells",
+            "1/2 cup grated Parmigiano-Reggiano"
+        ],
+        "instructions": {
+            "1": "Bring broth, water, and 1 teaspoon salt to a boil in a medium saucepan, then reduce heat and keep at a bare simmer.",
+            "2": "Trim tough stem ends from broccoli rabe, then cut remaining stems crosswise into 1-inch pieces and reserve. Coarsely chop florets and leaves.",
+            "3": "Heat oil in a 5- to 6-quart heavy pot over medium-high heat until it shimmers, then saut\u00e9 onion with 1/2 teaspoon salt until softened, 3 to 5 minutes. Stir in garlic and saut\u00e9 1 minute, then add pasta, broccoli rabe stems, and 3/4 cup hot broth and simmer briskly, stirring constantly, until broth is absorbed. Continue simmering and adding hot broth, about 3/4 cup at a time, stirring frequently and letting each addition be absorbed before adding the next, until pasta is almost al dente and creamy-looking, 12 to 13 minutes. Stir in remaining broccoli rabe and 1/4 teaspoon pepper and cook, stirring, until pasta is al dente and broccoli rabe is just tender, 2 to 3 minutes. (If needed, add more hot broth to moisten; there will be some broth left over.) Stir in cheese and salt and pepper to taste. Serve with more cheese on the side."
+        },
+        "cooking_time": 35,
+        "servings": null,
+        "ratings": {
+            "rating": 3.3,
+            "count": 9
+        },
+        "tags": {
+            "type": [
+                "Risotto",
+                "Pasta Shells",
+                "Pasta"
+            ],
+            "cuisine": [
+                "Italian",
+                "European"
+            ],
+            "ingredient": [
+                "Broccoli Rabe",
+                "Vegetable"
+            ],
+            "meal": [
+                "Side",
+                "Dinner"
+            ],
+            "special-consideration": [
+                "Nut Free",
+                "Vegetarian"
+            ],
+            "simple-cooking": [
+                "30 Minutes or Less",
+                "Weeknight Meals"
+            ],
+            "technique": [
+                "Saute"
+            ],
+            "source": [
+                "Gourmet"
+            ]
+        },
+        "publish_date": "October 15, 2007",
+        "image_filename": null
+    },
+    {
+        "title": "Penne with Shrimp, Red Onion, and Goat Cheese",
+        "description": null,
+        "ingredients": [
+            "1 pound whole grain penne",
+            "Kosher salt",
+            "3 tablespoons extra-virgin olive oil, divided",
+            "1 1/4 pounds medium uncooked shrimp, peeled, deveined",
+            "Freshly ground black pepper",
+            "1 large red onion (about 1 pound), halved, thinly sliced crosswise",
+            "3 cups cherry tomatoes (about 1 1/2 pints)",
+            "7 tablespoons chopped flat-leaf parsley, divided",
+            "3 tablespoons chopped fresh oregano, divided",
+            "1 5-ounce log fresh goat cheese, crumbled"
+        ],
+        "instructions": {
+            "1": "Cook penne in a large pot of boiling salted water, stirring occasionally, until al dente.",
+            "2": "Meanwhile, heat 1 Tbsp. oil in a large heavy skillet over medium-high heat. Season shrimp with salt and pepper. Cook shrimp until just opaque in the center, 1\u20132 minutes per side. Using a slotted spoon, transfer shrimp to a medium bowl. Add remaining 2 Tbsp. oil and onion to same skillet. Season with salt and pepper and saut\u00e9 until onion begins to brown and wilt, 5\u20137 minutes. Add tomatoes; cook, mashing some of tomatoes with the back of a spoon to release juices, until tomatoes are just beginning to soften, about 3 minutes. Stir in 4 Tbsp. parsley, 2 Tbsp. oregano, and shrimp with any accumulated juices.",
+            "3": "Drain pasta, reserving 1/2 cup pasta cooking liquid; transfer pasta back to pot. Add shrimp mixture to pasta and toss to evenly incorporate; cook, stirring and adding pasta cooking liquid by tablespoonfuls if pasta is too dry, until pasta is tender and mixture is heated through, 1\u20132 minutes. Season to taste with salt and pepper.",
+            "4": "Transfer pasta mixture to a large wide bowl. Add cheese; toss gently 2 or 3 times. Sprinkle remaining 3 Tbsp. parsley and 1 Tbsp. oregano over."
+        },
+        "cooking_time": 30,
+        "servings": 6,
+        "ratings": null,
+        "tags": {
+            "type": [
+                "Pasta",
+                "Penne"
+            ],
+            "cuisine": [
+                "Italian American",
+                "Italian",
+                "European"
+            ],
+            "ingredient": [
+                "Shrimp",
+                "Shellfish",
+                "Seafood",
+                "Cherry Tomato",
+                "Tomato",
+                "Vegetable",
+                "Goat Cheese",
+                "Cheese",
+                "Dairy"
+            ],
+            "simple-cooking": [
+                "Quick",
+                "Weeknight Meals"
+            ],
+            "meal": [
+                "Main",
+                "Lunch",
+                "Dinner"
+            ],
+            "special-consideration": [
+                "Nut Free"
+            ],
+            "technique": [
+                "Saute"
+            ],
+            "source": [
+                "Bon App\u00e9tit"
+            ]
+        },
+        "publish_date": "June 6, 2012",
+        "image_filename": "ba-syn-penne-with-shrimp-red-onion-and-goat-cheese"
+    },
+    {
+        "title": "Roasted Salmon with Lentils",
+        "description": "The cooking time for lentils can vary widely depending on their age, as older lentils require more time. For the best results, buy a fresh, new bag. A mustard vinaigrette boosts the flavor of this Mediterranean-inspired dish.",
+        "ingredients": [
+            "3/4 cup lentils, picked over and rinsed",
+            "1/2 small onion, chopped",
+            "1 large celery stalk, chopped",
+            "2 tablespoons red-wine vinegar",
+            "1 tablespoon olive oil",
+            "1 tablespoon Dijon mustard",
+            "1 garlic clove, minced",
+            "1/3 cup chopped fresh parsley",
+            "Coarse salt and fresh ground pepper",
+            "4 skinless salmon fillets (6 ounces each)",
+            "Nonstick cooking spray"
+        ],
+        "instructions": {
+            "1": "Combine the lentils and 2\u00a01/2 cups water in a medium saucepan. Bring to a boil; reduce the heat, and simmer, covered, for 5 minutes. Add the onion and celery; cover, and continue cooking until the lentils and vegetables are just tender, 15 to 25 minutes more. Drain, reserving the cooking liquid. Transfer the lentil mixture to a medium bowl.",
+            "2": "In a bowl, whisk 2 tablespoons of the reserved cooking liquid with the vinegar, oil, mustard, garlic, and parsley; season with salt and pepper. Toss half the dressing with the lentil mixture.",
+            "3": "Heat the broiler. Season the salmon with salt and pepper. Coat a baking sheet with cooking spray. Arrange the salmon on the sheet; broil until opaque throughout, 8 to 10 minutes. Spoon the lentils onto 4 plates; top with the salmon, flaking it into large pieces, if desired. Drizzle with the remaining dressing.",
+            "4": "Chopped celery leaves add wonderful flavor to the lentils. Use them in place of or in addition to the parsley."
+        },
+        "cooking_time": null,
+        "servings": null,
+        "ratings": null,
+        "tags": {
+            "cuisine": [
+                "Mediterranean"
+            ],
+            "ingredient": [
+                "Salmon",
+                "Fish",
+                "Seafood",
+                "Lentil",
+                "Bean and Legume",
+                "Vegetable"
+            ],
+            "meal": [
+                "Main",
+                "Dinner"
+            ],
+            "special-consideration": [
+                "Dairy Free",
+                "Gluten Free",
+                "Nut Free"
+            ],
+            "simple-cooking": [
+                "Easy",
+                "Weeknight Meals"
+            ],
+            "technique": [
+                "Broil"
+            ],
+            "source": [
+                "Cookbooks"
+            ]
+        },
+        "publish_date": "December 14, 2011",
+        "image_filename": null
+    },
+    {
+        "title": "Radicchio with Bacon",
+        "description": "Closely related in flavor and spirit to the classic French pissenlit (dandelion greens with bacon), this differs in that the greens are cooked from the start. Also, though it may be finished with lemon, vinegar is almost never used. Other vegetables you can prepare this way: any relatively tender, bitter green\u2014curly endive, escarole, dandelion, even Belgian endive, cut crosswise.",
+        "ingredients": [
+            "2 tablespoons extra virgin olive oil",
+            "1/4 pound slab bacon, cut into 1/4- to 1/2-inch chunks",
+            "1 pound radicchio, roughly chopped",
+            "Salt and black pepper to taste",
+            "Lemon wedges for serving, optional"
+        ],
+        "instructions": {
+            "1": "Put the olive oil in a large skillet, preferably nonstick, over medium-high heat. Add the bacon and cook, stirring occasionally, until crisp, 5 to 10 minutes. Remove with a slotted spoon and set aside for the moment.",
+            "2": "Reduce the heat to medium, add the radicchio, and cook, stirring occasionally, until it wilts and becomes tender, about 10 minutes. Add some pepper and salt if necessary, then return the bacon to the pan and cook, stirring occasionally, until the bacon reheats. Serve hot or at room temperature, with the lemon wedges if you like."
+        },
+        "cooking_time": null,
+        "servings": 4,
+        "ratings": null,
+        "tags": {
+            "ingredient": [
+                "Bacon",
+                "Cured Meat",
+                "Meat",
+                "Radicchio",
+                "Chicory",
+                "Leafy Greens",
+                "Vegetable"
+            ],
+            "meal": [
+                "Starter",
+                "Side",
+                "Dinner"
+            ],
+            "special-consideration": [
+                "Dairy Free",
+                "Gluten Free",
+                "Nut Free",
+                "Keto"
+            ],
+            "simple-cooking": [
+                "Quick",
+                "Easy",
+                "Weeknight Meals",
+                "5 Ingredients or Fewer"
+            ],
+            "technique": [
+                "Saute"
+            ],
+            "source": [
+                "Cookbooks"
+            ]
+        },
+        "publish_date": "December 14, 2011",
+        "image_filename": null
+    },
+    {
+        "title": "Louisiana Deviled Crab Cakes",
+        "description": "These crab cakes are flavored with the \"holy trinity\" of Cajun cooking: onion, green bell pepper, and celery. Serve them with a helping of coleslaw or a green salad.",
+        "ingredients": [
+            "1/4 cup finely chopped onion",
+            "1/4 cup finely chopped green bell pepper",
+            "3 tablespoons finely chopped celery",
+            "3 tablespoons unsalted butter",
+            "1 large egg",
+            "1 tablespoon sour cream",
+            "1/2 teaspoon dry mustard",
+            "1/2 teaspoon Worcestershire sauce",
+            "3/4 teaspoon cayenne",
+            "3/4 teaspoon salt",
+            "2 tablespoons thinly sliced scallion greens",
+            "16 saltines, finely ground",
+            "1/2 lb jumbo lump crabmeat, picked over",
+            "1 tablespoon vegetable oil",
+            "Accompaniments: tartar sauce and lemon wedges",
+            ""
+        ],
+        "instructions": {
+            "1": "Cook onion, bell pepper, and celery in 1 tablespoon butter in a 10-inch nonstick skillet over moderately low heat, stirring occasionally, until vegetables are softened, about 8 minutes.",
+            "2": "Whisk together egg, sour cream, mustard, Worcestershire sauce, cayenne, and salt in a large bowl, then stir in scallion, cooked vegetables, and 1/4 cup saltine crumbs. Gently stir in crabmeat, then form into 4 cakes (2 1/2 to 3 inches in diameter). Dredge cakes in remaining saltine crumbs.",
+            "3": "Heat oil and remaining 2 tablespoons butter in cleaned skillet over moderate heat until foam subsides, then cook crab cakes, turning once, until golden brown, 8 minutes total."
+        },
+        "cooking_time": null,
+        "servings": null,
+        "ratings": {
+            "rating": 4.6,
+            "count": 110
+        },
+        "tags": {
+            "cuisine": [
+                "Cajun & Creole",
+                "Southern",
+                "American"
+            ],
+            "ingredient": [
+                "Onion",
+                "Root Vegetable",
+                "Vegetable",
+                "Bell Pepper",
+                "Celery",
+                "Sour Cream",
+                "Dairy",
+                "Scallion",
+                "Crab",
+                "Shellfish",
+                "Seafood"
+            ],
+            "meal": [
+                "Main",
+                "Starter",
+                "Lunch",
+                "Dinner"
+            ],
+            "special-consideration": [
+                "Nut Free"
+            ],
+            "simple-cooking": [
+                "Quick",
+                "Easy"
+            ],
+            "technique": [
+                "Fry"
+            ],
+            "source": [
+                "Gourmet"
+            ]
+        },
+        "publish_date": "August 20, 2004",
+        "image_filename": "louisiana-deviled-crab-cakes-104883"
+    },
+    {
+        "title": "Beet and Carrot Salad with Coriander and Sesame Salt",
+        "description": "The shredding disc on the food processor makes quick work of grating the beets and carrots. For a pretty presentation, spoon the salad onto a bed of beet greens, spinach, or arugula. Serve with burgers or fish.",
+        "ingredients": [
+            "3 1/2 tablespoons minced shallot",
+            "3 tablespoons plus 2 teaspoons apple cider vinegar",
+            "2 tablespoons fresh orange juice",
+            "1 tablespoon white miso (fermented soybean paste)",
+            "1 teaspoon finely grated peeled fresh ginger",
+            "1/2 teaspoon finely grated orange peel",
+            "1/3 cup extra-virgin olive oil",
+            "1 1/2 teaspoons coriander seeds",
+            "2 tablespoons sesame seeds",
+            "3/4 teaspoon coarse kosher salt",
+            "4 2-inch-diameter red beets, peeled",
+            "1 pound carrots, peeled",
+            "Ingredient info: White miso (also known as shiro miso) is available in the refrigerated Asian foods section of some supermarkets and at a natural food stores and Japanese markets"
+        ],
+        "instructions": {
+            "1": "Whisk shallot, vinegar, orange juice, miso, ginger, and orange peel in medium bowl. Let stand 10 minutes to allow flavors to blend. Gradually whisk in oil.",
+            "2": "Toast coriander seeds in small skillet over medium heat until beginning to brown, about 2 minutes. Cool. Transfer to spice mill; process until coarsely ground. Add sesame seeds to same skillet. Toast over medium heat until golden brown, about 3 minutes. Add 3/4 teaspoon coarse salt; stir 30 seconds. Transfer sesame salt to small bowl and cool. DO AHEAD: Dressing and toasted spices can be made 1 day ahead.",
+            "3": "Cover and chill dressing. Store toasted coriander and sesame salt in separate airtight containers at room temperature.",
+            "4": "Using shredding disc on processor or a box grater, coarsely grate beets and carrots. Transfer vegetables to large bowl. Add enough dressing to coat lightly. Add coriander and 1 tablespoon sesame salt. Toss to coat. Let marinate at room temperature 30 minutes. Season salad to taste with salt and pepper. DO AHEAD: Can be made 4 hours ahead. Cover and chill.",
+            "5": "Toss salad, adding additional dressing, if desired. Sprinkle with remaining sesame salt and serve."
+        },
+        "cooking_time": 70,
+        "servings": 8,
+        "ratings": {
+            "rating": 4.4,
+            "count": 20
+        },
+        "tags": {
+            "type": [
+                "Salad"
+            ],
+            "ingredient": [
+                "Beet",
+                "Root Vegetable",
+                "Vegetable",
+                "Carrot",
+                "Miso"
+            ],
+            "meal": [
+                "Side",
+                "Dinner"
+            ],
+            "special-consideration": [
+                "Dairy Free",
+                "Gluten Free",
+                "Nut Free",
+                "Vegan",
+                "Vegetarian"
+            ],
+            "simple-cooking": [
+                "Weeknight Meals"
+            ],
+            "technique": [
+                "Saute"
+            ],
+            "equipment": [
+                "Food Processor"
+            ],
+            "source": [
+                "Bon App\u00e9tit"
+            ]
+        },
+        "publish_date": "September 10, 2010",
+        "image_filename": "beet-and-carrot-salad-with-coriander-and-sesame-salt-361290"
+    },
+    {
+        "title": "Zucchini and Rice Pancakes",
+        "description": "Somewhere between a frittata, a fritter, and fried rice, these little pancakes are packed with protein and delicious with almost any cooked grain or leftover greens in the filling.",
+        "ingredients": [
+            "3 tablespoons olive oil, divided",
+            "1 garlic clove, finely chopped",
+            "1 15-ounce can crushed tomatoes",
+            "\u00bd teaspoon dried oregano",
+            "Kosher salt, freshly ground pepper",
+            "1 small zucchini, thinly sliced",
+            "\u00bd cup cooked leftover rice or any other grain",
+            "2 large eggs, beaten to blend"
+        ],
+        "instructions": {
+            "1": "Heat 1 Tbsp. oil in a medium saucepan over medium. Add garlic and cook, stirring often, until fragrant, about 1 minute. Add tomatoes and oregano and cook, stirring occasionally, until reduced and slightly thickened, about 10 minutes. Transfer to a medium bowl and season with salt and pepper.",
+            "2": "Heat 1 Tbsp. oil in a small nonstick skillet over medium-high. Add zucchini, season with salt and pepper, and cook, tossing occasionally, until golden and tender, about 4 minutes. Add rice and remaining 1 Tbsp. oil. Cook, stirring occasionally, until rice is crisp, about 3 minutes. Reduce heat to medium and add eggs, tilting skillet to evenly distribute. Cook, undisturbed, until eggs are mostly set, about 1 minute. Invert pancake onto a plate, then slide back into skillet. Cook until golden brown on the second side, about 1 minute more. Let cool slightly before cutting into wedges. Serve with reserved tomato sauce for dipping.",
+            "3": "Do Ahead: Tomato sauce can be made up to 3 days ahead. Cover and chill."
+        },
+        "cooking_time": null,
+        "servings": 2,
+        "ratings": null,
+        "tags": {
+            "type": [
+                "Pancake"
+            ],
+            "ingredient": [
+                "Zucchini",
+                "Squash",
+                "Vegetable",
+                "Rice",
+                "Rice & Grains"
+            ],
+            "simple-cooking": [
+                "Easy",
+                "Quick"
+            ],
+            "meal": [
+                "Snack",
+                "Lunch"
+            ],
+            "special-consideration": [
+                "Gluten Free",
+                "Nut Free",
+                "Dairy Free",
+                "Vegetarian"
+            ],
+            "technique": [
+                "Fry"
+            ],
+            "source": [
+                "Bon App\u00e9tit"
+            ]
+        },
+        "publish_date": "June 16, 2015",
+        "image_filename": "ba-syn-zucchini-rice-pancakes"
+    }
+]

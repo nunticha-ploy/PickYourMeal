@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Ardisj Bradden",
+        "email": "abradden0@cornell.edu",
+        "password": "ardisj12345678",
+        "emailVerified": true
+    },
+    {
+        "name": "Husain Swetmore",
+        "email": "hswetmore1@t-online.de",
+        "password": "husain12345678",
+        "emailVerified": true
+    },
+    {
+        "name": "Merv Huddle",
+        "email": "mhuddle2@wikispaces.com",
+        "password": "merv12345678",
+        "emailVerified": true
+    },
+    {
+        "name": "Trula Kenwell",
+        "email": "tkenwell3@stumbleupon.com",
+        "password": "trula12345678",
+        "emailVerified": true
+    },
+    {
+        "name": "Christina Sellar",
+        "email": "csellar4@dailymotion.com",
+        "password": "christina12345678",
+        "emailVerified": true
+    }
+]

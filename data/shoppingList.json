@@ -1,0 +1,55 @@
+[
+    {
+        "user": "user1",
+        "menuItems": [
+            {
+                "title": "Pasta-Shell Risotto with Broccoli Rabe",
+                "ingredients": [
+                    "1 quart reduced-sodium chicken broth",
+                    "1 quart water",
+                    "1 bunch broccoli rabe",
+                    "1/4 cup olive oil",
+                    "1 medium onion, chopped",
+                    "2 garlic cloves, chopped",
+                    "1 lb medium pasta shells",
+                    "1/2 cup grated Parmigiano-Reggiano"
+                ]
+            },
+            {
+                "title": "Penne with Shrimp, Red Onion, and Goat Cheese",
+                "ingredients": [
+                    "1 pound whole grain penne",
+                    "Kosher salt",
+                    "3 tablespoons extra-virgin olive oil, divided",
+                    "1 1/4 pounds medium uncooked shrimp, peeled, deveined",
+                    "Freshly ground black pepper",
+                    "1 large red onion (about 1 pound), halved, thinly sliced crosswise",
+                    "3 cups cherry tomatoes (about 1 1/2 pints)",
+                    "7 tablespoons chopped flat-leaf parsley, divided",
+                    "3 tablespoons chopped fresh oregano, divided",
+                    "1 5-ounce log fresh goat cheese, crumbled"
+                ]
+            }
+        ]
+    },
+    {
+        "user": "user2",
+        "menuItems": [
+            {
+                "title": "Penne with Shrimp, Red Onion, and Goat Cheese",
+                "ingredients": [
+                    "1 pound whole grain penne",
+                    "Kosher salt",
+                    "3 tablespoons extra-virgin olive oil, divided",
+                    "1 1/4 pounds medium uncooked shrimp, peeled, deveined",
+                    "Freshly ground black pepper",
+                    "1 large red onion (about 1 pound), halved, thinly sliced crosswise",
+                    "3 cups cherry tomatoes (about 1 1/2 pints)",
+                    "7 tablespoons chopped flat-leaf parsley, divided",
+                    "3 tablespoons chopped fresh oregano, divided",
+                    "1 5-ounce log fresh goat cheese, crumbled"
+                ]
+            }
+        ]
+    }
+]
