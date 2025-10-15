@@ -29,12 +29,12 @@ const updateMenuItemRules = [
 
     body("cooking_time")
         .optional()
-        .isFloat({ gt: 0 })
+        .isFloat({ min: 0 })
         .withMessage("Cooking time must be a positive number"),
 
     body("servings")
         .optional()
-        .isFloat({ gt: 0 })
+        .isFloat({ min: 0 })
         .withMessage("Cooking time must be a positive number"),
 
     body("ratings")
@@ -68,3 +68,4 @@ const updateMenuItemRules = [
 ];
 
 module.exports = updateMenuItemRules;
+

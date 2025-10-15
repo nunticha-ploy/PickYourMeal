@@ -1,6 +1,8 @@
 require("dotenv").config();
 
 const express = require("express");
+const { menuItemsRoute } = require("./modules/menuItems/menuItems-routes");
+const connectDB = require("./shared/middlewares/connect-db");
 
 const port = 3000;
 const hostname = "localhost";
@@ -10,6 +12,14 @@ const server = express();
 // built-in middlewares to parse request body in application-level
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
+
+//connectDB middleware
+server.use(connectDB);
+
+//mount routes
+server.use(menuItemsRoute);
+
+
 
 // error-handling middleware to logs the error for debugging.
 server.use((error, req, res, next) => {

@@ -9,7 +9,7 @@ const createMenuItemRules = [
         .withMessage("Title must be a string")
         .isLength({ min: 6 })
         .withMessage("Title must be at least 6 characters long")
-        .noEmpty()
+        .notEmpty()
         .withMessage("Title must be required"),
 
     body("description")
@@ -22,19 +22,19 @@ const createMenuItemRules = [
     body("ingredients")
         .isArray({ min: 1 })
         .withMessage("Ingredients must be a non-empty array")
-        .noEmpty()
+        .notEmpty()
         .withMessage("Ingredients must be required"),
 
     //body("instructions") -- I dont know how to set the rules for this 
 
     body("cooking_time")
         .optional()
-        .isFloat({ gt: 0 })
+        .isFloat({ min: 0 })
         .withMessage("Cooking time must be a positive number"),
 
     body("servings")
         .optional()
-        .isFloat({ gt: 0 })
+        .isFloat({ min: 0 })
         .withMessage("Cooking time must be a positive number"),
 
     body("ratings")
