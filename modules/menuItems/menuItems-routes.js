@@ -32,7 +32,7 @@ menuItemsRoute.get("/menuItems/:id", async (req, res) => {
     }
 });
 
-// crate new menu item
+// crate new menu item // message is not showing
 menuItemsRoute.post("/menuItems", createMenuItemRules, checkValidation, async (req, res) => {
 
     const newMenuItem = req.body;
@@ -53,13 +53,49 @@ menuItemsRoute.post("/menuItems", createMenuItemRules, checkValidation, async (r
     if(!addNewMenuItem){
         return res.status(500).json({message: "Cannot create new menu item"});
     }else{
-        return res.json(addNewMenuItem, {message: "Successfully created new menu item"});
+        return res.json({addNewMenuItem, message: "Successfully created new menu item"});
     }
 });
 
-//update menu item details
-menuItemsRoute.put("/menuItems/:id", updateMenuItemRules, checkValidation, async (res, req) => {
+//update menu item details // 
+menuItemsRoute.put("/menuItems/:id", updateMenuItemRules, checkValidation, async (req, res) => {
+    const id = req.params.id;
+    const newMenuItemDetails = req.body;
+    const foundMenuItemId = await MenuItemModel.findById(id);
 
+    if(!foundMenuItemId){
+        return res.status(404).json({message: "Menu item not found"})
+    }
+
+    const updatedMenuItemDetail = await MenuItemModel.findByIdAndUpdate(
+        id,
+        newMenuItemDetails,
+        { new: true }
+    );
+
+    if(!updatedMenuItemDetail){
+        return res.status(500).json({message: "Cannot update menu item details"});
+    }else{
+        return res.json({updatedMenuItemDetail, message: "Succesfully updated menu item details"});
+    }
+});
+
+//delete menu item by id
+menuItemsRoute.delete("/menuItems/:id", async (req, res) => {
+    const id = req.params.id;
+    const foundMenuItemId = await MenuItemModel.findById(id);
+
+    if(!foundMenuItemId){
+        return res.status(404).json({message: "Menu item not found"})
+    }
+
+    const deleteMenuItem = await MenuItemModel.findByIdAndDelete(foundMenuItemId);
+
+    if(!deleteMenuItem){
+        return res.status(500).json({message: "Cannot delete menu item"});
+    }else{
+        return res.json({message: "Succesfully delete menu item"});
+    }
 });
 
 
