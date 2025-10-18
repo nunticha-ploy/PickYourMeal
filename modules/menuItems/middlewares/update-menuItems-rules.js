@@ -66,7 +66,7 @@ const updateMenuItemRules = [
         .isObject()
         .withMessage("Ratings must be an object"),
 
-    body("rationgs.rating")
+    body("ratings.rating")
         .optional()
         .isFloat({ min: 0, max: 5 })
         .withMessage("Rating must be a number between 0 and 5"),
@@ -98,7 +98,7 @@ const updateMenuItemRules = [
                     }
                 });
             }
-            
+
             return true;
         }),
 

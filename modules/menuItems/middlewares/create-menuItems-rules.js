@@ -47,7 +47,6 @@ const createMenuItemRules = [
             return true;
         }),
 
-
     body("cooking_time")
         .optional()
         .isFloat({ min: 0 })
@@ -63,7 +62,7 @@ const createMenuItemRules = [
         .isObject()
         .withMessage("Ratings must be an object"),
 
-    body("rationgs.rating")
+    body("ratings.rating")
         .optional()
         .isFloat({ min: 0, max: 5 })
         .withMessage("Rating must be a number between 0 and 5"),
@@ -75,7 +74,6 @@ const createMenuItemRules = [
 
     body("tags")
         .optional()
-
         .custom((tags) => {
             if(tags === undefined){
                 return true;
@@ -87,7 +85,7 @@ const createMenuItemRules = [
 
             for(const key in tags){
                 if(!Array.isArray(tags[key])){
-                    throw new Error(`Tag ${ket} must be an array`);
+                    throw new Error(`Tag ${key} must be an array`);
                 }
 
                 tags[key].forEach((item, index) => {
@@ -99,7 +97,6 @@ const createMenuItemRules = [
 
             return true;
         }),
-        
 
     body("publish_date")
         .optional()
