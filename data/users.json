@@ -3,30 +3,94 @@
         "name": "Ardisj Bradden",
         "email": "abradden0@cornell.edu",
         "password": "ardisj12345678",
-        "emailVerified": true
+        "emailVerified": true,
+        "bookmarks": [
+            {
+                "name": "comfort meal",
+                "menuItems": [
+                    "menu1",
+                    "menu2"
+                ]
+            }
+        ],
+        "favorites": [
+            "menu20",
+            "menu33"
+        ],
+        "shoppingList": [
+            {
+                "menuItemId": "ref from menuItem",
+                "title": "Pasta-Shell Risotto with Broccoli Rabe",
+                "ingredients": [
+                    "1 quart reduced-sodium chicken broth",
+                    "1 quart water",
+                    "1 bunch broccoli rabe",
+                    "1/4 cup olive oil",
+                    "1 medium onion, chopped",
+                    "2 garlic cloves, chopped",
+                    "1 lb medium pasta shells",
+                    "1/2 cup grated Parmigiano-Reggiano"
+                ]
+            }
+        ]
     },
     {
-        "name": "Husain Swetmore",
-        "email": "hswetmore1@t-online.de",
-        "password": "husain12345678",
-        "emailVerified": true
+        "name": "Jame B",
+        "email": "jame0@cornell.edu",
+        "password": "Jj12345678",
+        "emailVerified": true,
+        "bookmarks": [
+            {
+                "name": "comfort meal",
+                "menuItems": [
+                    "menu1",
+                    "menu2"
+                ]
+            }
+        ],
+        "favorites": [
+            "menu20",
+            "menu33"
+        ],
+        "shoppingList": [
+            {
+                "menuItemId": "ref from menuItem",
+                "title": "Penne with Shrimp, Red Onion, and Goat Cheese",
+                "ingredients": [
+                    "1 pound whole grain penne",
+                    "Kosher salt",
+                    "3 tablespoons extra-virgin olive oil, divided",
+                    "1 1/4 pounds medium uncooked shrimp, peeled, deveined",
+                    "Freshly ground black pepper",
+                    "1 large red onion (about 1 pound), halved, thinly sliced crosswise",
+                    "3 cups cherry tomatoes (about 1 1/2 pints)",
+                    "7 tablespoons chopped flat-leaf parsley, divided",
+                    "3 tablespoons chopped fresh oregano, divided",
+                    "1 5-ounce log fresh goat cheese, crumbled"
+                ]
+            }
+        ]
     },
     {
-        "name": "Merv Huddle",
-        "email": "mhuddle2@wikispaces.com",
-        "password": "merv12345678",
-        "emailVerified": true
-    },
-    {
-        "name": "Trula Kenwell",
-        "email": "tkenwell3@stumbleupon.com",
-        "password": "trula12345678",
-        "emailVerified": true
-    },
-    {
-        "name": "Christina Sellar",
-        "email": "csellar4@dailymotion.com",
-        "password": "christina12345678",
-        "emailVerified": true
+        "name": "Ardisj Bradden",
+        "email": "abradden0@cornell.edu",
+        "password": "ardisj12345678",
+        "emailVerified": true,
+        "bookmarks": [
+            {
+                "name": "comfort meal",
+                "menuItems": [
+                    "menu1",
+                    "menu2"
+                ]
+            }
+        ],
+        "favorites": [
+            "menu20",
+            "menu33"
+        ],
+        "shoppingList": [
+            {}
+        ]
     }
 ]

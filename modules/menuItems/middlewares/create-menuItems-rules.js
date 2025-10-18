@@ -25,13 +25,28 @@ const createMenuItemRules = [
         .notEmpty()
         .withMessage("Ingredients must be required"),
 
-        //.custom(() => {
-        //    if(){
+    body("instructions") 
+        .notEmpty()
+        .withMessage("Instructions must be required")
+        .custom((instructions) => {
+            if(typeof instructions !== "object" || Array.isArray(instructions) || instructions === null){
+                throw new Error("Instructions must be an object");
+            }
+            
+            const keys = Object.keys(instructions);
+            if(keys.length === 0){
+                throw new Error("Instructions must not be empty");
+            }
 
-        //    }
-        //}),
+            for(const key in instructions){
+                if(typeof instructions[key] !== "string" || instructions[key].trim() === ""){
+                    throw new Error(`Instruction step ${key} must be string and required`);
+                }
+            }
 
-    //body("instructions") -- I dont know how to set the rules for this 
+            return true;
+        }),
+
 
     body("cooking_time")
         .optional()
@@ -58,7 +73,32 @@ const createMenuItemRules = [
         .isInt({ min: 0 })
         .withMessage("Rating count must be a positive number"),
 
-    //body("tags") -- I dont know how to set the rules for this 
+    body("tags")
+        .optional()
+
+        .custom((tags) => {
+            if(tags === undefined){
+                return true;
+            }
+
+            if(typeof tags !== "object" || Array.isArray(tags) || tags === null){
+                throw new Error("Tags must be an objects");
+            }
+
+            for(const key in tags){
+                if(!Array.isArray(tags[key])){
+                    throw new Error(`Tag ${ket} must be an array`);
+                }
+
+                tags[key].forEach((item, index) => {
+                    if(typeof item !== "string" || item.trim() === ""){
+                        throw new Error(`Tag ${key} at index ${index} must be string and required`);
+                    }
+                });
+            }
+
+            return true;
+        }),
 
     body("publish_date")
         .optional()
