@@ -99,6 +99,7 @@ const createMenuItemRules = [
 
             return true;
         }),
+        
 
     body("publish_date")
         .optional()
