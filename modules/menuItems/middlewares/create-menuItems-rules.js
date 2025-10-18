@@ -25,6 +25,12 @@ const createMenuItemRules = [
         .notEmpty()
         .withMessage("Ingredients must be required"),
 
+        //.custom(() => {
+        //    if(){
+
+        //    }
+        //}),
+
     //body("instructions") -- I dont know how to set the rules for this 
 
     body("cooking_time")
