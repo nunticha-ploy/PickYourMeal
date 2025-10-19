@@ -8,18 +8,18 @@
             {
                 "name": "comfort meal",
                 "menuItems": [
-                    "menu1",
-                    "menu2"
+                    "68eedb645ae35922d3faf006",
+                    "68eedb645ae35922d3faf008"
                 ]
             }
         ],
         "favorites": [
-            "menu20",
-            "menu33"
+            "68eedb645ae35922d3faf00c",
+            "68eedb645ae35922d3faf014"
         ],
-        "shoppingList": [
+        "shoppingLists": [
             {
-                "menuItemId": "ref from menuItem",
+                "menuItemId": "68eedb645ae35922d3faf015",
                 "title": "Pasta-Shell Risotto with Broccoli Rabe",
                 "ingredients": [
                     "1 quart reduced-sodium chicken broth",
@@ -43,16 +43,15 @@
             {
                 "name": "comfort meal",
                 "menuItems": [
-                    "menu1",
-                    "menu2"
+                    "68eedb645ae35922d3faf006"
                 ]
             }
         ],
         "favorites": [
-            "menu20",
-            "menu33"
+            "68eedb645ae35922d3faf006",
+            "68eedb645ae35922d3faf008"
         ],
-        "shoppingList": [
+        "shoppingLists": [
             {
                 "menuItemId": "ref from menuItem",
                 "title": "Penne with Shrimp, Red Onion, and Goat Cheese",
@@ -80,16 +79,13 @@
             {
                 "name": "comfort meal",
                 "menuItems": [
-                    "menu1",
-                    "menu2"
+                    "68eedb645ae35922d3faf008"
                 ]
             }
         ],
         "favorites": [
-            "menu20",
-            "menu33"
         ],
-        "shoppingList": [
+        "shoppingLists": [
             {}
         ]
     }

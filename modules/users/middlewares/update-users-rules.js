@@ -18,7 +18,6 @@ const updateUserRules = [
 
     body("password")
         .optional()
-        .withMessage("Password is required")
         .isString()
         .withMessage("Password must be a string")
         .isLength({ min: 8 })

@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const { menuItemsRoute } = require("./modules/menuItems/menuItems-routes");
 const connectDB = require("./shared/middlewares/connect-db");
+const { userModelRoute } = require("./modules/users/users-routes");
 
 const port = 3000;
 const hostname = "localhost";
@@ -18,6 +19,7 @@ server.use(connectDB);
 
 //mount routes
 server.use(menuItemsRoute);
+server.use(userModelRoute);
 
 
 

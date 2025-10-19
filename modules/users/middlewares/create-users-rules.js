@@ -3,7 +3,6 @@
 const { body } = require("express-validator");
 const checkValidation = require("../../../shared/middlewares/check-validation");
 
-
 const createUserRules = [
     body("name")
         .notEmpty()
@@ -28,9 +27,6 @@ const createUserRules = [
         .withMessage("Password must be at least 8 characters long")
         .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/)
         .withMessage("Password must contain at least one lowercase letter, one uppercase letter and number"),
-
-    //i dont know what suppose to be in emailVerified
-
 
     checkValidation,
 ];
