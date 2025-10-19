@@ -7,5 +7,6 @@ Phase 2:
 -  Connect database with mongoDB and create MenuItemSchema and userSchema in menuItems-model
 -  Implement logic by call MenuItemItemModel (Get all menu items, get menu item by id, create new menu items, update menu item details and delete menu items)
 -  Implement logic by call userModel (Get all users, get user by id, create new user, update user details and delete user)
-- Create check validation use express-validator
-- Test all routes
+-  Implement logic create new bookmark call userModel and createBookmarkRules
+-  Create check validation use express-validator
+-  Test all routes

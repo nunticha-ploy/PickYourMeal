@@ -4,6 +4,8 @@ const updateUserRules = require("./middlewares/update-users-rules");
 
 const userModel = require("./users-model");
 const checkValidation = require("../../shared/middlewares/check-validation");
+const createBookmarkRules = require("../bookmarks/middlewares/create-bookmarks-rules");
+const updateBookmarkRules = require("../bookmarks/middlewares/update-bookmarks-rules");
 
 const userRoute = Router();
 
@@ -95,5 +97,32 @@ userRoute.delete("/users/:id", async (req, res) => {
         return res.json({message: "Succesfully delete user"});
     }
 });
+
+//create new bookmarks 
+userRoute.post("/users/:id/bookmarks", createBookmarkRules, checkValidation, async (req, res) => {
+
+    const id = req.params.id;
+    const name = req.body.name;
+    const menuItems = req.body.menuItems;
+
+    const foundUserId = await userModel.findById(id);
+
+    if(!foundUserId){
+        return res.status(404).json({message: "user not found"})
+    }
+
+    const createNewBookmark = await userModel.findByIdAndUpdate(
+        id,
+        { $push: { bookmarks: { name: name, menuItems: menuItems } } },
+        { new: true }
+    );
+
+    if(!createNewBookmark){
+        return res.status(500).json({message: "Cannot create new bookmark"});
+    }else{
+        return res.json({createNewBookmark, message: "Successfully created new bookmark"});
+    }
+});
+
 
 module.exports = { userRoute };

@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
     }],
     favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: "MenuItem"}],
     shoppingLists: [{ 
-        menuItemId: { type: mongoose.Schema.Types.ObjectId, ref: "MenuItem", reqired: true  },
+        menuItemId: { type: mongoose.Schema.Types.ObjectId, ref: "MenuItem", required: true  },
         title: { type: String, required: true, trim: true },
         ingredients: [{ type: String, required: true }],
         createdAt: { type: mongoose.Schema.Types.Date, default: Date.now() },
