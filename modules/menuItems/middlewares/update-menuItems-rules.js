@@ -89,7 +89,7 @@ const updateMenuItemRules = [
 
             for (const key in tags) {
                 if (!Array.isArray(tags[key])) {
-                    throw new Error(`Tag ${ket} must be an array`);
+                    throw new Error(`Tag ${key} must be an array`);
                 }
 
                 tags[key].forEach((item, index) => {
