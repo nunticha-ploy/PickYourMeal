@@ -32,7 +32,7 @@ menuItemsRoute.get("/menuItems/:id", async (req, res) => {
     }
 });
 
-// crate new menu item // message is not showing
+// crate new menu item 
 menuItemsRoute.post("/menuItems", createMenuItemRules, checkValidation, async (req, res) => {
 
     const newMenuItem = req.body;
