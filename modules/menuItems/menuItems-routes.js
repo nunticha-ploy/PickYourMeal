@@ -7,9 +7,34 @@ const checkValidation = require("../../shared/middlewares/check-validation");
 
 const menuItemsRoute = Router();
 
+
+//get data by search
+menuItemsRoute.get("/menuItems/search", async (req, res) => {
+    const { keyword } = req.query;
+    console.log("Query received:", req.query);
+
+    if(!keyword){
+        return res.status(400).json({message: "Please enter a search keyword."})
+    }
+
+    const menuItemBySearch = await MenuItemModel.find({
+        $or: [
+            { title: { $regex: keyword, $options: "i" } },
+            { description: { $regex: keyword, $options: "i" } },
+            { ingredients: { $regex: keyword, $options: "i" } },
+            { tags: { $regex: keyword, $options: "i" } }
+        ]
+    });
+
+    if(menuItemBySearch.length === 0){
+        return res.status(404).json({message: "Menu not found. Please try another keyword" });
+    }else{
+        return res.json(menuItemBySearch);
+    }
+});
+
 // get all menu items from the database
 // **take long time to get all the data**
-
 menuItemsRoute.get("/menuItems", async (req, res) => {
     const allMenuItems = await MenuItemModel.find();
     if(!allMenuItems){
@@ -18,6 +43,7 @@ menuItemsRoute.get("/menuItems", async (req, res) => {
         return res.json(allMenuItems);
     }
 });
+
 
 // get menu item by id
 
@@ -98,7 +124,6 @@ menuItemsRoute.delete("/menuItems/:id", async (req, res) => {
     }
 });
 
-//get data by search
 
 
 
