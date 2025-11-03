@@ -9,7 +9,6 @@ const updateBookmarkRules = require("../bookmarks/middlewares/update-bookmarks-r
 
 const userRoute = Router();
 
-
 // get all the user from the database
 
 userRoute.get("/users", async (req, res) => {
@@ -124,5 +123,32 @@ userRoute.post("/users/:id/bookmarks", createBookmarkRules, checkValidation, asy
     }
 });
 
+//add menu item into bookmarks
+userRoute.post("/users/:id/bookmarks/:bookmarkId", async (req, res) => {
+    const userId = req.params.id;
+    const bookmarkId = req.params.bookmarkId;
+    const { menuItemId } = req.body;
+
+    const foundUserId = await userModel.findById(userId);
+    if(!foundUserId){
+        return res.status(404).json({message: "user not found"});
+    }
+
+    const foundBookmarkId = await foundUserId.bookmarks.id(bookmarkId);
+    if(!foundBookmarkId){
+        return res.status(404).json({message: "Bookmark not found"});
+    }
+
+    if(foundBookmarkId.menuItems.includes(menuItemId)) {
+        return res.status(400).json({message: "Cannot add menu item into the bookmark. This menu item already exists in this bookmark"});
+    }else{
+        foundBookmarkId.menuItems.push(menuItemId);
+    }
+
+    await foundUserId.save();
+
+    res.json({ foundBookmarkId, message: "add menu item into the bookmark successfully"})
+
+});
 
 module.exports = { userRoute };
