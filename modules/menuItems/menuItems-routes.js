@@ -56,15 +56,27 @@ menuItemsRoute.get("/menuItems/search", async (req, res) => {
     }
 });
 
-//get random menu
+//get random menu + filter
 menuItemsRoute.get("/menuItems/random", async (req, res) => {
+
+    const { type, cuisine, meal, ingredient, specialConsideration } = req.query;
+    const query = {};
+
+    //filter checkbox
+    if (type) query["tags.type"] = type;
+    if (cuisine) query["tags.cuisine"] = cuisine;
+    if (meal) query["tags.meal"] = meal;
+    if (ingredient) query["tags.ingredient"] = ingredient;
+    if (specialConsideration) query["tags.special-consideration"] = specialConsideration;
+
     const randomMenu = await MenuItemModel.aggregate([
+        { $match: query },
         { $sample: { size: 1 } }
     ]);
 
-    if(!randomMenu){
+    if (randomMenu.length === 0) {
         return res.status(404).json({ message: "Cannot random menu. Please try again" });
-    }else{
+    } else {
         return res.json(randomMenu);
     }
 })
