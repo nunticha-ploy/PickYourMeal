@@ -4,6 +4,7 @@ const updateMenuItemRules = require("./middlewares/update-menuItems-rules");
 
 const MenuItemModel = require("./menuItems-model");
 const checkValidation = require("../../shared/middlewares/check-validation");
+const { query } = require("express-validator");
 
 const menuItemsRoute = Router();
 
@@ -20,26 +21,37 @@ menuItemsRoute.get("/menuItems/choices", async (req, res) => {
 });
 
 
-//get data by search
+//get data by search + filter 
 menuItemsRoute.get("/menuItems/search", async (req, res) => {
-    const { keyword } = req.query;
+    const { keyword, type, cuisine, meal, ingredient, specialConsideration } = req.query;
 
-    if(!keyword){
-        return res.status(400).json({message: "Please enter a search keyword."})
+    if (!keyword) {
+        return res.status(400).json({ message: "Please enter a search keyword." })
     }
 
-    const menuItemBySearch = await MenuItemModel.find({
+    const query = {
         $or: [
             { title: { $regex: keyword, $options: "i" } },
             { description: { $regex: keyword, $options: "i" } },
             { ingredients: { $regex: keyword, $options: "i" } },
             { tags: { $regex: keyword, $options: "i" } }
         ]
-    });
+    };
 
-    if(menuItemBySearch.length === 0){
-        return res.status(404).json({message: "Menu not found. Please try another keyword" });
-    }else{
+    //filter checkbox
+    if (type) query["tags.type"] = type;
+    if (cuisine) query["tags.cuisine"] = cuisine;
+    if (meal) query["tags.meal"] = meal;
+    if (ingredient) query["tags.ingredient"] = ingredient;
+    if (specialConsideration) query["tags.special-consideration"] = specialConsideration;
+
+    //search from query
+    const menuItemBySearch = await MenuItemModel.find(query);
+
+
+    if (menuItemBySearch.length === 0) {
+        return res.status(404).json({ message: "Menu not found. Please try another keyword" });
+    } else {
         return res.json(menuItemBySearch);
     }
 });
@@ -49,9 +61,9 @@ menuItemsRoute.get("/menuItems/search", async (req, res) => {
 menuItemsRoute.get("/menuItems", async (req, res) => {
 
     const allMenuItems = await MenuItemModel.find();
-    if(!allMenuItems){
+    if (!allMenuItems) {
         return res.json([]);
-    }else{
+    } else {
         return res.json(allMenuItems);
     }
 });
@@ -63,9 +75,9 @@ menuItemsRoute.get("/menuItems/:id", async (req, res) => {
     const id = req.params.id;
     const foundMenuItemId = await MenuItemModel.findById(id);
 
-    if(!foundMenuItemId){
-        return res.status(404).json({message: "Menu item not found"});
-    }else{
+    if (!foundMenuItemId) {
+        return res.status(404).json({ message: "Menu item not found" });
+    } else {
         return res.json(foundMenuItemId);
     }
 });
@@ -88,10 +100,10 @@ menuItemsRoute.post("/menuItems", createMenuItemRules, checkValidation, async (r
         image_filename: newMenuItem.image_filename
     });
 
-    if(!addNewMenuItem){
-        return res.status(500).json({message: "Cannot create new menu item"});
-    }else{
-        return res.json({addNewMenuItem, message: "Successfully created new menu item"});
+    if (!addNewMenuItem) {
+        return res.status(500).json({ message: "Cannot create new menu item" });
+    } else {
+        return res.json({ addNewMenuItem, message: "Successfully created new menu item" });
     }
 });
 
@@ -101,8 +113,8 @@ menuItemsRoute.put("/menuItems/:id", updateMenuItemRules, checkValidation, async
     const newMenuItemDetails = req.body;
     const foundMenuItemId = await MenuItemModel.findById(id);
 
-    if(!foundMenuItemId){
-        return res.status(404).json({message: "Menu item not found"})
+    if (!foundMenuItemId) {
+        return res.status(404).json({ message: "Menu item not found" })
     }
 
     const updatedMenuItemDetail = await MenuItemModel.findByIdAndUpdate(
@@ -111,10 +123,10 @@ menuItemsRoute.put("/menuItems/:id", updateMenuItemRules, checkValidation, async
         { new: true }
     );
 
-    if(!updatedMenuItemDetail){
-        return res.status(500).json({message: "Cannot update menu item details"});
-    }else{
-        return res.json({updatedMenuItemDetail, message: "Succesfully updated menu item details"});
+    if (!updatedMenuItemDetail) {
+        return res.status(500).json({ message: "Cannot update menu item details" });
+    } else {
+        return res.json({ updatedMenuItemDetail, message: "Succesfully updated menu item details" });
     }
 });
 
@@ -123,16 +135,16 @@ menuItemsRoute.delete("/menuItems/:id", async (req, res) => {
     const id = req.params.id;
     const foundMenuItemId = await MenuItemModel.findById(id);
 
-    if(!foundMenuItemId){
-        return res.status(404).json({message: "Menu item not found"})
+    if (!foundMenuItemId) {
+        return res.status(404).json({ message: "Menu item not found" })
     }
 
     const deleteMenuItem = await MenuItemModel.findByIdAndDelete(foundMenuItemId);
 
-    if(!deleteMenuItem){
-        return res.status(500).json({message: "Cannot delete menu item"});
-    }else{
-        return res.json({message: "Succesfully delete menu item"});
+    if (!deleteMenuItem) {
+        return res.status(500).json({ message: "Cannot delete menu item" });
+    } else {
+        return res.json({ message: "Succesfully delete menu item" });
     }
 });
 
