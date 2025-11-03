@@ -10,3 +10,8 @@ Phase 2:
 -  Implement logic create new bookmark call userModel and createBookmarkRules
 -  Create check validation use express-validator
 -  Test all routes
+
+Phase 3:
+-  Routes in menuItems (get filter choices for check box, get data by query search + filter, get random menu + filter)
+-  Routes in users (create new bookmarks, add menu item into bookmarks)
+-  Test all routes
