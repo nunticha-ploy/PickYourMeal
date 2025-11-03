@@ -7,11 +7,22 @@ const checkValidation = require("../../shared/middlewares/check-validation");
 
 const menuItemsRoute = Router();
 
+//get filter choices for check box
+menuItemsRoute.get("/menuItems/choices", async (req, res) => {
+
+    const types = await MenuItemModel.distinct("tags.type");
+    const cuisines = await MenuItemModel.distinct("tags.cuisine");
+    const meals = await MenuItemModel.distinct("tags.meal");
+    const ingredients = await MenuItemModel.distinct("tags.ingredient");
+    const specialConsideration = await MenuItemModel.distinct("tags.special-consideration");
+
+    res.json({ types, cuisines, meals, ingredients, specialConsideration })
+});
+
 
 //get data by search
 menuItemsRoute.get("/menuItems/search", async (req, res) => {
     const { keyword } = req.query;
-    console.log("Query received:", req.query);
 
     if(!keyword){
         return res.status(400).json({message: "Please enter a search keyword."})
@@ -36,6 +47,7 @@ menuItemsRoute.get("/menuItems/search", async (req, res) => {
 // get all menu items from the database
 // **take long time to get all the data**
 menuItemsRoute.get("/menuItems", async (req, res) => {
+
     const allMenuItems = await MenuItemModel.find();
     if(!allMenuItems){
         return res.json([]);
@@ -123,6 +135,8 @@ menuItemsRoute.delete("/menuItems/:id", async (req, res) => {
         return res.json({message: "Succesfully delete menu item"});
     }
 });
+
+
 
 
 
