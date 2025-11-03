@@ -56,6 +56,19 @@ menuItemsRoute.get("/menuItems/search", async (req, res) => {
     }
 });
 
+//get random menu
+menuItemsRoute.get("/menuItems/random", async (req, res) => {
+    const randomMenu = await MenuItemModel.aggregate([
+        { $sample: { size: 1 } }
+    ]);
+
+    if(!randomMenu){
+        return res.status(404).json({ message: "Cannot random menu. Please try again" });
+    }else{
+        return res.json(randomMenu);
+    }
+})
+
 // get all menu items from the database
 // **take long time to get all the data**
 menuItemsRoute.get("/menuItems", async (req, res) => {
@@ -147,10 +160,6 @@ menuItemsRoute.delete("/menuItems/:id", async (req, res) => {
         return res.json({ message: "Succesfully delete menu item" });
     }
 });
-
-
-
-
 
 
 module.exports = { menuItemsRoute };
