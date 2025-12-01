@@ -4,11 +4,14 @@ const express = require("express");
 const { menuItemsRoute } = require("./modules/menuItems/menuItems-routes");
 const connectDB = require("./shared/middlewares/connect-db");
 const { userModelRoute, userRoute } = require("./modules/users/users-routes");
+const cors = require("cors");
 
 const port = 3000;
 const hostname = "localhost";
 
 const server = express();
+
+server.use(cors());
 
 // built-in middlewares to parse request body in application-level
 server.use(express.json());

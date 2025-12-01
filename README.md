@@ -23,3 +23,4 @@ Phase 4:
 - Setup frontend directory 
 - Create RegisterPage (create new user)
 - Create BrowserRoute in App.jsx
+- Test create user account
