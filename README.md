@@ -16,3 +16,8 @@ Phase 3:
 -  Routes in users (create new bookmarks, add menu item into bookmarks)
 -  Test all routes
 *note* still need (remove menu item, update bookmark name)
+
+Phase 4:
+- Routes for remove menu item out of bookmark
+- Create directory for backend and frontend
+- Setup frontend directory 
