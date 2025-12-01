@@ -21,3 +21,5 @@ Phase 4:
 - Routes for remove menu item out of bookmark
 - Create directory for backend and frontend
 - Setup frontend directory 
+- Create RegisterPage (create new user)
+- Create BrowserRoute in App.jsx
