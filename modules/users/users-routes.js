@@ -151,4 +151,9 @@ userRoute.post("/users/:id/bookmarks/:bookmarkId", async (req, res) => {
 
 });
 
+//remove menu item from bookmark
+userRoute.delete("/users/:id/bookmarks/:bookmarkId/:menuItemId"), async (req, res) => {
+    
+}
+
 module.exports = { userRoute };

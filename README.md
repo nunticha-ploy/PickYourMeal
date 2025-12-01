@@ -15,3 +15,4 @@ Phase 3:
 -  Routes in menuItems (get filter choices for check box, get data by query search + filter, get random menu + filter)
 -  Routes in users (create new bookmarks, add menu item into bookmarks)
 -  Test all routes
+*note* still need (remove menu item, update bookmark name)
