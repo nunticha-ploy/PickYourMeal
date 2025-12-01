@@ -13,9 +13,9 @@ const userRoute = Router();
 
 userRoute.get("/users", async (req, res) => {
     const allUser = await userModel.find();
-    if(!allUser){
+    if (!allUser) {
         return res.json([]);
-    }else{
+    } else {
         return res.json(allUser);
     }
 });
@@ -27,9 +27,9 @@ userRoute.get("/users/:id", async (req, res) => {
     const id = req.params.id;
     const foundUserId = await userModel.findById(id);
 
-    if(!foundUserId){
-        return res.status(404).json({message: "User not found"});
-    }else{
+    if (!foundUserId) {
+        return res.status(404).json({ message: "User not found" });
+    } else {
         return res.json(foundUserId);
     }
 });
@@ -49,10 +49,10 @@ userRoute.post("/users", createUserRules, checkValidation, async (req, res) => {
         shoppingLists: newUser.shoppingLists
     });
 
-    if(!createNewUser){
-        return res.status(500).json({message: "Cannot create new user"});
-    }else{
-        return res.json({createNewUser, message: "Successfully created new user"});
+    if (!createNewUser) {
+        return res.status(500).json({ message: "Cannot create new user" });
+    } else {
+        return res.json({ createNewUser, message: "Successfully created new user" });
     }
 });
 
@@ -62,8 +62,8 @@ userRoute.put("/users/:id", updateUserRules, checkValidation, async (req, res) =
     const newUserDetails = req.body;
     const foundUserId = await userModel.findById(id);
 
-    if(!foundUserId){
-        return res.status(404).json({message: "User not found"})
+    if (!foundUserId) {
+        return res.status(404).json({ message: "User not found" })
     }
 
     const updatedUserDetails = await userModel.findByIdAndUpdate(
@@ -72,10 +72,10 @@ userRoute.put("/users/:id", updateUserRules, checkValidation, async (req, res) =
         { new: true }
     );
 
-    if(!updatedUserDetails){
-        return res.status(500).json({message: "Cannot update user details"});
-    }else{
-        return res.json({updatedUserDetails, message: "Succesfully updated user details"});
+    if (!updatedUserDetails) {
+        return res.status(500).json({ message: "Cannot update user details" });
+    } else {
+        return res.json({ updatedUserDetails, message: "Succesfully updated user details" });
     }
 });
 
@@ -84,16 +84,16 @@ userRoute.delete("/users/:id", async (req, res) => {
     const id = req.params.id;
     const foundUserId = await userModel.findById(id);
 
-    if(!foundUserId){
-        return res.status(404).json({message: "user not found"})
+    if (!foundUserId) {
+        return res.status(404).json({ message: "user not found" })
     }
 
     const deleteUser = await userModel.findByIdAndDelete(foundUserId);
 
-    if(!deleteUser){
-        return res.status(500).json({message: "Cannot delete user"});
-    }else{
-        return res.json({message: "Succesfully delete user"});
+    if (!deleteUser) {
+        return res.status(500).json({ message: "Cannot delete user" });
+    } else {
+        return res.json({ message: "Succesfully delete user" });
     }
 });
 
@@ -106,8 +106,8 @@ userRoute.post("/users/:id/bookmarks", createBookmarkRules, checkValidation, asy
 
     const foundUserId = await userModel.findById(id);
 
-    if(!foundUserId){
-        return res.status(404).json({message: "user not found"})
+    if (!foundUserId) {
+        return res.status(404).json({ message: "user not found" })
     }
 
     const createNewBookmark = await userModel.findByIdAndUpdate(
@@ -116,10 +116,10 @@ userRoute.post("/users/:id/bookmarks", createBookmarkRules, checkValidation, asy
         { new: true }
     );
 
-    if(!createNewBookmark){
-        return res.status(500).json({message: "Cannot create new bookmark"});
-    }else{
-        return res.json({createNewBookmark, message: "Successfully created new bookmark"});
+    if (!createNewBookmark) {
+        return res.status(500).json({ message: "Cannot create new bookmark" });
+    } else {
+        return res.json({ createNewBookmark, message: "Successfully created new bookmark" });
     }
 });
 
@@ -130,30 +130,59 @@ userRoute.post("/users/:id/bookmarks/:bookmarkId", async (req, res) => {
     const { menuItemId } = req.body;
 
     const foundUserId = await userModel.findById(userId);
-    if(!foundUserId){
-        return res.status(404).json({message: "user not found"});
+    if (!foundUserId) {
+        return res.status(404).json({ message: "user not found" });
     }
 
     const foundBookmarkId = await foundUserId.bookmarks.id(bookmarkId);
-    if(!foundBookmarkId){
-        return res.status(404).json({message: "Bookmark not found"});
+    if (!foundBookmarkId) {
+        return res.status(404).json({ message: "Bookmark not found" });
     }
 
-    if(foundBookmarkId.menuItems.includes(menuItemId)) {
-        return res.status(400).json({message: "Cannot add menu item into the bookmark. This menu item already exists in this bookmark"});
-    }else{
-        foundBookmarkId.menuItems.push(menuItemId);
-    }
+    if (foundBookmarkId.menuItems.includes(menuItemId)) {
+        return res.status(400).json({ message: "Cannot add menu item into the bookmark. This menu item already exists in this bookmark" });
+    } 
+
+    foundBookmarkId.menuItems.push(menuItemId);
 
     await foundUserId.save();
 
-    res.json({ foundBookmarkId, message: "add menu item into the bookmark successfully"})
+    res.json({ foundBookmarkId, message: "Add menu item into the bookmark successfully" })
 
 });
 
 //remove menu item from bookmark
-userRoute.delete("/users/:id/bookmarks/:bookmarkId/:menuItemId"), async (req, res) => {
-    
-}
+userRoute.delete("/users/:id/bookmarks/:bookmarkId/:menuItemId", async (req, res) => {
+    const userId = req.params.id;
+    const bookmarkId = req.params.bookmarkId;
+    const menuItemId = req.params.menuItemId;
+
+    const foundUserId = await userModel.findById(userId);
+    if (!foundUserId) {
+        return res.status(404).json({ message: "user not found" });
+    }
+
+    const foundBookmarkId = await foundUserId.bookmarks.id(bookmarkId);
+    if (!foundBookmarkId) {
+        return res.status(404).json({ message: "Bookmark not found" });
+    }
+
+    console.log("foundBookmarkId.menuItems:", foundBookmarkId.menuItems);
+
+    const updatedUserDetails = await userModel.findOneAndUpdate(
+        { _id: userId, "bookmarks._id" : bookmarkId },
+        { $pull: { "bookmarks.$.menuItems" : menuItemId } },
+        { new: true }
+    );
+
+    if (!updatedUserDetails) {
+        return res.status(500).json({ message: "Cannot delete menuItem from the bookmark" });
+    }
+
+    const updateBookmark = updatedUserDetails.bookmarks.id(bookmarkId);
+
+    return res.json({ updateBookmark, message: "Delete menu item from bookmark successfully" })
+
+});
 
 module.exports = { userRoute };
