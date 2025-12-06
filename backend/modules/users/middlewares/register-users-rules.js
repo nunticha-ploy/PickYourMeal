@@ -3,7 +3,7 @@
 const { body } = require("express-validator");
 const checkValidation = require("../../../shared/middlewares/check-validation");
 
-const createUserRules = [
+const registerUserRules = [
     body("name")
         .notEmpty()
         .withMessage("Name is required")
@@ -31,4 +31,4 @@ const createUserRules = [
     checkValidation,
 ];
 
-module.exports = createUserRules;
+module.exports = registerUserRules;

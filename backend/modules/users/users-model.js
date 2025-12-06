@@ -1,7 +1,7 @@
 // user model using Mongoose 
 
 const mongoose = require("mongoose");
-const encodePassword = require("../../shared/password-utils");
+const { encodePassword } = require("../../shared/password-utils");
 
 const userSchema = new mongoose.Schema({
     name: { type: String, required: true, trim: true },

@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const createUserRules = require("./middlewares/create-users-rules");
+const registerUserRules = require("./middlewares/register-users-rules");
 const updateUserRules = require("./middlewares/update-users-rules");
 
 const userModel = require("./users-model");
@@ -34,12 +34,12 @@ userRoute.get("/users/:id", async (req, res) => {
     }
 });
 
-// crate new menu item 
-userRoute.post("/users", createUserRules, checkValidation, async (req, res) => {
+// crate new user account
+userRoute.post("/users/register", registerUserRules, checkValidation, async (req, res) => {
 
     const newUser = req.body;
 
-    const createNewUser = await userModel.create({
+    const registerNewUser = await userModel.create({
         name: newUser.name,
         email: newUser.email,
         password: newUser.password,
@@ -49,10 +49,10 @@ userRoute.post("/users", createUserRules, checkValidation, async (req, res) => {
         shoppingLists: newUser.shoppingLists
     });
 
-    if (!createNewUser) {
-        return res.status(500).json({ message: "Cannot create new user" });
+    if (!registerNewUser) {
+        return res.status(500).json({ errorMessage: `User with ${newUser.email} already exist` });
     } else {
-        return res.json({ createNewUser, message: "Successfully created new user" });
+        return res.json({ registerNewUser, message: "Successfully created new user" });
     }
 });
 
@@ -184,5 +184,7 @@ userRoute.delete("/users/:id/bookmarks/:bookmarkId/:menuItemId", async (req, res
     return res.json({ updateBookmark, message: "Delete menu item from bookmark successfully" })
 
 });
+
+
 
 module.exports = { userRoute };
