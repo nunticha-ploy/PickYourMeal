@@ -185,6 +185,71 @@ userRoute.delete("/users/:id/bookmarks/:bookmarkId/:menuItemId", async (req, res
 
 });
 
+//user login
+userRoute.post("/users/login", loginRules, async (req, res) => {
+    const { email, password } = req.body;
+    const foundUser = await userModel.findOne({ email });
+    if (!foundUser) {
+        return res.status(404).send({
+            errorMessage: `User with ${email} doesn't exist`,
+        });
+    }
+    const passwordMatched = matchPassword(password, foundUser.password);
+    if (!passwordMatched) {
+        return res.status(401).send({
+            errorMessage: `Email and password didn't matched`,
+        });
+    }
+    const user = { ...foundUser.toJSON(), password: undefined };
+    // generate access token
+    const token = encodeToken(user);
+    const randomNumber = randomNumberOfNDigits(6);
+
+    const otp = await OTPModel.findOneAndUpdate(
+        { email: email },
+        { otp: randomNumber },
+        { upsert: true, new: true },
+    );
+
+    const sendOTPEmail = await sendEmail(email, "OTP Code", `Your OTP is: ${randomNumber}`);
+
+    if (!sendOTPEmail) {
+        return res.status(500).send({
+            errorMessage: `Can not send an OTP`,
+        });
+    }
+    res.json({ user, token, message: `OTP sent successfully` });
+
+});
+
+
+//user verify login
+userRoute.post("/users/verify-login", verifyLoginRules, async (req, res) => {
+    const { email, otp } = req.body;
+
+    const foundOTP = await OTPModel.findOne({ email, otp: Number(otp) });
+
+    if (!foundOTP) {
+        return res.status(404).send({
+            errorMessage: "verification failed",
+        });
+    }
+
+    const foundUser = await userModel.findOne({ email });
+    if (!foundUser) {
+        return res.status(404).send({
+            errorMessage: `User with ${email} doesn't exist`,
+        });
+    }
+
+    const user = { email: foundUser.email }
+    const genToken = encodeToken(user)
+
+    res.json({ genToken, user })
+
+}
+);
+
 
 
 module.exports = { userRoute };
