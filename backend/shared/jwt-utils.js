@@ -1,7 +1,6 @@
 const { verify } = require("jsonwebtoken");
 const { sign } = require("jsonwebtoken");
 
-const secret = process.env.TOKEN_SECRET;
 const expiresIn = "6h";
 
 
@@ -16,7 +15,7 @@ const decodeToken = (token) => {
 
 const encodeToken = (payload) => {
   const secret = process.env.TOKEN_SECRET;
-  return sign(payload, secret, { expiresIn: "1h" });
+  return sign(payload, secret, { expiresIn });
 };
 
 module.exports = { decodeToken, encodeToken };
