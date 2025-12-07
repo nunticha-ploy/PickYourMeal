@@ -3,6 +3,7 @@
 const { body } = require("express-validator");
 const checkValidation = require("../../../shared/middlewares/check-validation");
 
+
 const registerUserRules = [
     body("name")
         .notEmpty()
