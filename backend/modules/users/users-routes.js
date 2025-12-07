@@ -13,12 +13,13 @@ const sendEmail = require("../../shared/email-utils");
 const { matchPassword } = require("../../shared/password-utils");
 const { encodeToken } = require("../../shared/jwt-utils");
 const { randomNumberOfNDigits } = require("../../shared/compute-utils");
+const authorize = require("../../shared/middlewares/authorize");
 
 const userRoute = Router();
 
 // get all the user from the database
 
-userRoute.get("/users", async (req, res) => {
+userRoute.get("/users", authorize(["admin"]), async (req, res) => {
     const allUser = await userModel.find();
     if (!allUser) {
         return res.json([]);
@@ -30,9 +31,16 @@ userRoute.get("/users", async (req, res) => {
 
 // get user by id
 
-userRoute.get("/users/:id", async (req, res) => {
+userRoute.get("/users/:id", authorize(["admin", "user"]), async (req, res) => {
     const id = req.params.id;
     const foundUserId = await userModel.findById(id);
+    const isAdmin = req.account.roles.includes("admin");
+
+    if (!isAdmin) {
+        return res.status(401).json({
+            errorMessage: "Only admin is allow to access others account"
+        })
+    }
 
     if (!foundUserId) {
         return res.status(404).json({ message: "User not found" });
@@ -67,13 +75,28 @@ userRoute.post("/users/register", registerUserRules, checkValidation, async (req
 });
 
 //update user details // 
-userRoute.put("/users/:id", updateUserRules, checkValidation, async (req, res) => {
+userRoute.put("/users/:id", authorize(["admin", "user"]), updateUserRules, checkValidation, async (req, res) => {
     const id = req.params.id;
     const newUserDetails = req.body;
     const foundUserId = await userModel.findById(id);
+    const isAdmin = req.account.roles.includes("admin");
+    const isOwner = req.account.id === id;
 
     if (!foundUserId) {
         return res.status(404).json({ message: "User not found" })
+    }
+
+    if (!isAdmin && !isOwner) {
+        return res.status(401).json({
+            errorMessage: "Only admin is allow to access others account"
+        })
+    }
+
+    if (!isAdmin && newUser.roles) {
+        return res.status(401).json({
+            errorMessage:
+                "You don't have permission to update your role. Please contact the support team for the assistance!",
+        });
     }
 
     const updatedUserDetails = await userModel.findByIdAndUpdate(
@@ -90,12 +113,20 @@ userRoute.put("/users/:id", updateUserRules, checkValidation, async (req, res) =
 });
 
 //delete user by id
-userRoute.delete("/users/:id", async (req, res) => {
+userRoute.delete("/users/:id", authorize(["admin", "user"]), async (req, res) => {
     const id = req.params.id;
     const foundUserId = await userModel.findById(id);
+    const isAdmin = req.account.roles.includes("admin");
+    const isOwner = req.account.id === id;
 
     if (!foundUserId) {
         return res.status(404).json({ message: "user not found" })
+    }
+
+    if (!isAdmin && !isOwner) {
+        return res.status(401).json({
+            errorMessage: "Only admin is allow to delete others account"
+        })
     }
 
     const deleteUser = await userModel.findByIdAndDelete(foundUserId);
@@ -103,7 +134,7 @@ userRoute.delete("/users/:id", async (req, res) => {
     if (!deleteUser) {
         return res.status(500).json({ message: "Cannot delete user" });
     } else {
-        return res.json({ message: "Succesfully delete user" });
+        return res.json({ message: "Succesfully deleted user" });
     }
 });
 
@@ -244,6 +275,8 @@ userRoute.post("/users/verify-login", verifyLoginRules, checkValidation, async (
         });
     }
 
+    await OTPModel.deleteOne({ email });
+
     const foundUser = await userModel.findOne({ email });
     if (!foundUser) {
         return res.status(404).send({
@@ -251,13 +284,18 @@ userRoute.post("/users/verify-login", verifyLoginRules, checkValidation, async (
         });
     }
 
-    const user = { email: foundUser.email }
-    const genToken = encodeToken(user)
+    const user = {
+        id: foundUser._id.toString(),
+        email: foundUser.email,
+        name: foundUser.name,
+        roles: foundUser.roles
+    }
+
+    const genToken = encodeToken(user);
 
     res.json({ genToken, user, message: "Login successful" });
 
-}
-);
+});
 
 
 

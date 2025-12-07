@@ -1,4 +1,4 @@
-const { decodeToken } = require("../jwt-utils");
+const { decodeToken } = require("../../shared/jwt-utils");
 
 const adminStrategy = (authData) => {
   const { roles } = authData;
@@ -9,15 +9,15 @@ const customerStrategy = (authData) => {
   const isAdmin = adminStrategy(authData);
   if (isAdmin) return true;
   const { roles } = authData;
-  return roles && roles.includes("customer");
+  return roles && roles.includes("user");
 };
 
 const authStrategies = {
   admin: adminStrategy,
-  customer: customerStrategy,
+  user: userStrategy,
 };
 
-function authorize(requiredRoles = ["customer"]) {
+function authorize(requiredRoles = ["user"]) {
   function authorizeMiddleware(req, res, next) {
     try {
       const encoded = req.get("Authorization");
