@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
         ingredients: [{ type: String, required: true }],
         createdAt: { type: mongoose.Schema.Types.Date, default: Date.now() }
     }],
-    role: { type: String, enum: ["admin", "user"], default: "user", require: true },
+    role: { type: String, enum: ["admin", "user"], default: "user", required: true },
     createdAt: { type: mongoose.Schema.Types.Date, default: Date.now() },
 },
     { versionKey: false }

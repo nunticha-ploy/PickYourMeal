@@ -1,11 +1,18 @@
 const { Router } = require("express");
 const registerUserRules = require("./middlewares/register-users-rules");
 const updateUserRules = require("./middlewares/update-users-rules");
+const loginRules = require("./middlewares/login-users-rules");
+const verifyLoginRules = require("./middlewares/verify-login-rules");
 
 const userModel = require("./users-model");
+const OTPModel = require("./otp-model");
 const checkValidation = require("../../shared/middlewares/check-validation");
 const createBookmarkRules = require("../bookmarks/middlewares/create-bookmarks-rules");
 const updateBookmarkRules = require("../bookmarks/middlewares/update-bookmarks-rules");
+const sendEmail = require("../../shared/email-utils");
+const { matchPassword } = require("../../shared/password-utils");
+const { encodeToken } = require("../../shared/jwt-utils");
+const { randomNumberOfNDigits } = require("../../shared/compute-utils");
 
 const userRoute = Router();
 
@@ -39,21 +46,24 @@ userRoute.post("/users/register", registerUserRules, checkValidation, async (req
 
     const newUser = req.body;
 
+    const existingUser = await userModel.findOne({ email: newUser.email });
+
+    if (existingUser) {
+        return res.status(500).json({
+            errorMessage: `User with ${newUser.email} already exist`
+        });
+    }
+
     const registerNewUser = await userModel.create({
         name: newUser.name,
         email: newUser.email,
         password: newUser.password,
-        emailVerified: newUser.emailVerified,
-        bookmarks: newUser.bookmarks,
-        favorites: newUser.favorites,
-        shoppingLists: newUser.shoppingLists
+
     });
 
-    if (!registerNewUser) {
-        return res.status(500).json({ errorMessage: `User with ${newUser.email} already exist` });
-    } else {
-        return res.json({ registerNewUser, message: "Successfully created new user" });
-    }
+    const user = { ...registerNewUser.toJSON(), password: undefined };
+    res.json({ user, message: "Succesfully created new user account" });
+
 });
 
 //update user details // 
@@ -186,7 +196,7 @@ userRoute.delete("/users/:id/bookmarks/:bookmarkId/:menuItemId", async (req, res
 });
 
 //user login
-userRoute.post("/users/login", loginRules, async (req, res) => {
+userRoute.post("/users/login", loginRules, checkValidation, async (req, res) => {
     const { email, password } = req.body;
     const foundUser = await userModel.findOne({ email });
     if (!foundUser) {
@@ -197,12 +207,11 @@ userRoute.post("/users/login", loginRules, async (req, res) => {
     const passwordMatched = matchPassword(password, foundUser.password);
     if (!passwordMatched) {
         return res.status(401).send({
-            errorMessage: `Email and password didn't matched`,
+            errorMessage: "Email and password didn't matched",
         });
     }
     const user = { ...foundUser.toJSON(), password: undefined };
-    // generate access token
-    const token = encodeToken(user);
+
     const randomNumber = randomNumberOfNDigits(6);
 
     const otp = await OTPModel.findOneAndUpdate(
@@ -215,16 +224,16 @@ userRoute.post("/users/login", loginRules, async (req, res) => {
 
     if (!sendOTPEmail) {
         return res.status(500).send({
-            errorMessage: `Can not send an OTP`,
+            errorMessage: "Can not send an OTP",
         });
     }
-    res.json({ user, token, message: `OTP sent successfully` });
+    res.json({ message: "OTP sent successfully" });
 
 });
 
 
 //user verify login
-userRoute.post("/users/verify-login", verifyLoginRules, async (req, res) => {
+userRoute.post("/users/verify-login", verifyLoginRules, checkValidation, async (req, res) => {
     const { email, otp } = req.body;
 
     const foundOTP = await OTPModel.findOne({ email, otp: Number(otp) });
@@ -245,7 +254,7 @@ userRoute.post("/users/verify-login", verifyLoginRules, async (req, res) => {
     const user = { email: foundUser.email }
     const genToken = encodeToken(user)
 
-    res.json({ genToken, user })
+    res.json({ genToken, user, message: "Login successful" });
 
 }
 );
