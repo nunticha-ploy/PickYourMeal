@@ -35,18 +35,20 @@ userRoute.get("/users/:id", authorize(["admin", "user"]), async (req, res) => {
     const id = req.params.id;
     const foundUserId = await userModel.findById(id);
     const isAdmin = req.account.roles.includes("admin");
+    const isOwner = req.account.id === id;
 
-    if (!isAdmin) {
+
+    if (!foundUserId) {
+        return res.status(404).json({ message: "User not found" });
+    } 
+
+    if (!isAdmin && !isOwner) {
         return res.status(401).json({
             errorMessage: "Only admin is allow to access others account"
         })
     }
 
-    if (!foundUserId) {
-        return res.status(404).json({ message: "User not found" });
-    } else {
-        return res.json(foundUserId);
-    }
+    return res.json(foundUserId);
 });
 
 // crate new user account
@@ -92,7 +94,7 @@ userRoute.put("/users/:id", authorize(["admin", "user"]), updateUserRules, check
         })
     }
 
-    if (!isAdmin && newUser.roles) {
+    if (!isAdmin && newUserDetails.roles) {
         return res.status(401).json({
             errorMessage:
                 "You don't have permission to update your role. Please contact the support team for the assistance!",
@@ -129,7 +131,7 @@ userRoute.delete("/users/:id", authorize(["admin", "user"]), async (req, res) =>
         })
     }
 
-    const deleteUser = await userModel.findByIdAndDelete(foundUserId);
+    const deleteUser = await userModel.findByIdAndDelete(id);
 
     if (!deleteUser) {
         return res.status(500).json({ message: "Cannot delete user" });
@@ -139,16 +141,24 @@ userRoute.delete("/users/:id", authorize(["admin", "user"]), async (req, res) =>
 });
 
 //create new bookmarks 
-userRoute.post("/users/:id/bookmarks", createBookmarkRules, checkValidation, async (req, res) => {
+userRoute.post("/users/:id/bookmarks", authorize(["admin", "user"]), createBookmarkRules, checkValidation, async (req, res) => {
 
     const id = req.params.id;
     const name = req.body.name;
     const menuItems = req.body.menuItems;
+    const isAdmin = req.account.roles.includes("admin");
+    const isOwner = req.account.id === id;
 
     const foundUserId = await userModel.findById(id);
 
     if (!foundUserId) {
         return res.status(404).json({ message: "user not found" })
+    }
+
+    if (!isAdmin && !isOwner) {
+        return res.status(401).json({
+            errorMessage: "Only admin is allow to access others account"
+        })
     }
 
     const createNewBookmark = await userModel.findByIdAndUpdate(
@@ -165,14 +175,22 @@ userRoute.post("/users/:id/bookmarks", createBookmarkRules, checkValidation, asy
 });
 
 //add menu item into bookmarks
-userRoute.post("/users/:id/bookmarks/:bookmarkId", async (req, res) => {
+userRoute.post("/users/:id/bookmarks/:bookmarkId", authorize(["admin", "user"]), async (req, res) => {
     const userId = req.params.id;
     const bookmarkId = req.params.bookmarkId;
     const { menuItemId } = req.body;
+    const isAdmin = req.account.roles.includes("admin");
+    const isOwner = req.account.id === userId;
 
     const foundUserId = await userModel.findById(userId);
     if (!foundUserId) {
         return res.status(404).json({ message: "user not found" });
+    }
+
+    if (!isAdmin && !isOwner) {
+        return res.status(401).json({
+            errorMessage: "Only admin is allow to access others account"
+        })
     }
 
     const foundBookmarkId = await foundUserId.bookmarks.id(bookmarkId);
@@ -193,14 +211,22 @@ userRoute.post("/users/:id/bookmarks/:bookmarkId", async (req, res) => {
 });
 
 //remove menu item from bookmark
-userRoute.delete("/users/:id/bookmarks/:bookmarkId/:menuItemId", async (req, res) => {
+userRoute.delete("/users/:id/bookmarks/:bookmarkId/:menuItemId", authorize(["admin", "user"]), async (req, res) => {
     const userId = req.params.id;
     const bookmarkId = req.params.bookmarkId;
     const menuItemId = req.params.menuItemId;
+    const isAdmin = req.account.roles.includes("admin");
+    const isOwner = req.account.id === userId;
 
     const foundUserId = await userModel.findById(userId);
     if (!foundUserId) {
         return res.status(404).json({ message: "user not found" });
+    }
+
+    if (!isAdmin && !isOwner) {
+        return res.status(401).json({
+            errorMessage: "Only admin is allow to access others account"
+        })
     }
 
     const foundBookmarkId = await foundUserId.bookmarks.id(bookmarkId);

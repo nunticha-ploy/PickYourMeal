@@ -5,7 +5,7 @@ const adminStrategy = (authData) => {
   return roles && roles.includes("admin");
 };
 
-const customerStrategy = (authData) => {
+const userStrategy = (authData) => {
   const isAdmin = adminStrategy(authData);
   if (isAdmin) return true;
   const { roles } = authData;
