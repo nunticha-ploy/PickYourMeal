@@ -11,7 +11,10 @@ const hostname = "localhost";
 
 const server = express();
 
-server.use(cors({credentials: true}));
+server.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true
+  }));
 
 // built-in middlewares to parse request body in application-level
 server.use(express.json());
