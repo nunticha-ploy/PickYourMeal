@@ -11,6 +11,8 @@ const hostname = "localhost";
 
 const server = express();
 
+
+
 server.use(cors());
 
 // built-in middlewares to parse request body in application-level
@@ -23,8 +25,6 @@ server.use(connectDB);
 //mount routes
 server.use(menuItemsRoute);
 server.use(userRoute);
-
-
 
 // error-handling middleware to logs the error for debugging.
 server.use((error, req, res, next) => {

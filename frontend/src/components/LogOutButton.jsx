@@ -1,44 +1,28 @@
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function OTPVerifyPage() {
-    const [otp, setOtp] = useState("");
-    const [submit, setSubmit] = useState(false);
+function LogOutButton() {
+    const [logout, setLogout] = useState(false);
     const navigate = useNavigate();
-    const location = useLocation();
 
-    let email = "";
-    if(location.state.email){
-        email = location.state.email;
-    }
-
-    const handleOtpChange = (e) => {
-        setOtp(e.target.value);
-    }
-
-    const handleSubmit = async (e) => {
+    const handleLogOut = async (e) => {
         e.preventDefault();
-        setSubmit(true);
+        setLogout(true);
 
         try {
-            const response = await fetch("http://localhost:3000/users/verify-login", {
+            const response = await fetch("http://localhost:3000/users/logout", {
                 method: "POST",
                 credentials: "include",
                 headers: {
                     "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email,
-                    otp
-                })
+                }
             });
 
             if (response.ok || response.status === 200) {
+                
+                localStorage.removeItem("user");
 
-                const data = await response.json();
-                localStorage.setItem("user", JSON.stringify(data.user));
-
-                alert("Successfully login");
+                alert("Logout successful");
                 navigate("/");
             } else {
                 const contentType = response.headers.get("content-type");
@@ -77,15 +61,10 @@ function OTPVerifyPage() {
 
     return (
         <>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <label>Email: <input type="email" value={email} readOnly /></label><br />
-                <label>OTP: <input type="text" value={otp} onChange={handleOtpChange} disabled={submit} /></label><br />
-                <button type="submit" disabled={submit}>Submit</button>
-            </form>
+            <button onClick={handleLogOut} disabled={logout}>Logout</button>
         </>
     )
 
 }
 
-export default OTPVerifyPage;
+export default LogOutButton;

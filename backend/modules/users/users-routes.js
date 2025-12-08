@@ -319,8 +319,24 @@ userRoute.post("/users/verify-login", verifyLoginRules, checkValidation, async (
 
     const genToken = encodeToken(user);
 
-    res.json({ genToken, user, message: "Login successful" });
+    res.cookie("token", genToken, {
+        httpOnly: true,
+        secure: false,
+        maxAge: 1000 * 60 * 50
+    });
 
+    res.json({ user, message: "Login successful" });
+
+});
+
+//user logout
+userRoute.post("/users/logout", (req, res) => {
+    res.clearCookie("token", {
+        httpOnly: true,
+        secure: false,
+    });
+
+    res.json({ message: "Logout successful" });
 });
 
 
