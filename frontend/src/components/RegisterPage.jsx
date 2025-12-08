@@ -24,7 +24,6 @@ function registerPage() {
         e.preventDefault();
         setSubmit(true);
 
-        //will add error handler for all possible types of error responses later
         try {
             const response = await fetch("http://localhost:3000/users", {
                 method: "POST",
@@ -42,7 +41,16 @@ function registerPage() {
                 alert("Successfully create an account");
                 navigate("/");
             } else {
+
                 const error = await response.json();
+
+                if(Array.isArray(error)){
+                    alert(error.message);
+                }else{
+                    alert(error.message);
+                }
+
+
                 alert(error.message);
                 setSubmit(false);
             }
