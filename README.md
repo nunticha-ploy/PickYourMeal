@@ -26,3 +26,8 @@ Phase 4:
 - Test create user account and check data in MongoDB
 
 Phase 5:
+- Identify Features & Assign Access Roles
+- Add Token-Based Authentication with Email-Based MFA
+- Add Role-Based Access Control (RBAC)
+- Update Backend Routes for authorization
+- Add Authentication Flow in Frontend but logout still not working
