@@ -25,7 +25,7 @@ function registerPage() {
         setSubmit(true);
 
         try {
-            const response = await fetch("http://localhost:3000/users", {
+            const response = await fetch("http://localhost:3000/users/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -41,20 +41,31 @@ function registerPage() {
                 alert("Successfully create an account");
                 navigate("/");
             } else {
+                const contentType = response.headers.get("content-type");
+                let errorMessage = "An error occurred";
 
-                const error = await response.json();
+                if (contentType && contentType.includes("application/json")) {
+                    const error = await response.json();
 
-                if(Array.isArray(error)){
-                    alert(error.message);
-                }else{
-                    alert(error.message);
+                    if (Array.isArray(error)) {
+                        const messages = error.map(function (err) {
+                            return err.message;
+                        });
+                        errorMessage = messages.join(", ");
+                    } else {
+                        if (error.message) {
+                            errorMessage = error.message;
+                        } else {
+                            errorMessage = JSON.stringify(error);
+                        }
+                    }
+                } else {
+                    errorMessage = await response.text();
                 }
 
-
-                alert(error.message);
+                alert(errorMessage);
                 setSubmit(false);
             }
-
         } catch (err) {
             alert("Network error");
             console.log(err);
