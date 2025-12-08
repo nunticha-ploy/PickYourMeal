@@ -5,6 +5,8 @@ import RegisterPgae from './components/RegisterPage';
 import LogInPage from './components/LoginPage';
 import OTPVerifyPage from './components/OTPVerifyPage';
 import Home from './components/Home';
+import SearchMenuItemPage from './components/SearchMenuPage';
+import MenuItemDetailPage from './components/MenuItemDetailPage';
 
 function App() {
 
@@ -15,6 +17,8 @@ function App() {
       <Route path="/register" element = {<RegisterPgae/>}/>
       <Route path="/login" element = {<LogInPage/>}/>
       <Route path="/verify-otp" element = {<OTPVerifyPage/>}/>
+      <Route path="/search-menu" element= {<SearchMenuItemPage/>}/>
+      <Route path="/menu-detail" element= {<MenuItemDetailPage/>}/>
     </Routes>
     </BrowserRouter>
 
