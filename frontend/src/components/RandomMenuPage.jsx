@@ -2,32 +2,19 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MenuItemList from "./MenuItemList";
 
-function SearchMenuItemPage() {
-    const [keyword, setKeyword] = useState("");
+function RandomMenuPage() {
     const [result, setResult] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
-    const [search, setSearch] = useState(false);
-
-    const handleKeywordChange = (e) => {
-        setKeyword(e.target.value);
-    }
 
 
-    const handleSearch = async (e) => {
+    const handleRandom = async (e) => {
         e.preventDefault();
-
-        if (!keyword.trim()) {
-            setError("Please provide a keyword");
-            return;
-        }
-
         setLoading(true);
         setError("");
-        setSearch(true);
 
         try {
-            const response = await fetch(`http://localhost:3000/menuItems/search?keyword=${encodeURIComponent(keyword)}`, {
+            const response = await fetch("http://localhost:3000/menuItems/random", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -54,11 +41,10 @@ function SearchMenuItemPage() {
 
     return (
         <>
-            <h2>Search Menu</h2>
-            <form onSubmit={handleSearch}>
-                <input type="text" value={keyword} onChange={handleKeywordChange} placeholder="..." disabled={loading} required></input>
-                <button type="submit" disabled={loading}>Search</button><br/>
-                {loading ? "Searching..." : ""}
+            <h2>Random Menu</h2>
+            <form onSubmit={handleRandom}>
+                <button type="submit" disabled={loading}>Random</button><br/>
+                {loading ? "Randoming..." : ""}
             </form>
             <div>
                 {error && (
@@ -76,4 +62,4 @@ function SearchMenuItemPage() {
 
 }
 
-export default SearchMenuItemPage;
+export default RandomMenuPage;

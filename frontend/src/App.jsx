@@ -7,6 +7,7 @@ import OTPVerifyPage from './components/OTPVerifyPage';
 import Home from './components/Home';
 import SearchMenuItemPage from './components/SearchMenuPage';
 import MenuItemDetailPage from './components/MenuItemDetailPage';
+import RandomMenuPage from './components/RandomMenuPage';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
       <Route path="/verify-otp" element = {<OTPVerifyPage/>}/>
       <Route path="/search-menu" element= {<SearchMenuItemPage/>}/>
       <Route path="/menu-detail" element= {<MenuItemDetailPage/>}/>
+      <Route path="/random-menu" element= {<RandomMenuPage/>}/>
     </Routes>
     </BrowserRouter>
 
