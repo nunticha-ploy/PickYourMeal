@@ -6,7 +6,6 @@ function LogOutButton() {
     const navigate = useNavigate();
 
     const handleLogOut = async (e) => {
-        e.preventDefault();
         setLogout(true);
 
         try {
@@ -23,7 +22,7 @@ function LogOutButton() {
                 localStorage.removeItem("user");
 
                 alert("Logout successful");
-                navigate("/");
+                navigate("/login");
             } else {
                 const contentType = response.headers.get("content-type");
                 let errorMessage = "An error occurred";
@@ -50,12 +49,12 @@ function LogOutButton() {
                 }
 
                 alert(errorMessage);
-                setSubmit(false);
+                setLogout(false);
             }
         } catch (err) {
             alert("Network error");
             console.log(err);
-            setSubmit(false);
+            setLogout(false);
         }
     };
 
