@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MenuItemList from "./MenuItemList";
 import Header from '../components/Header';
+import '../components/page.css';
 
 function SearchMenuItemPage() {
     const [keyword, setKeyword] = useState("");
@@ -56,22 +57,28 @@ function SearchMenuItemPage() {
     return (
         <>
             <Header />
-            <h2>Search Menu</h2>
-            <form onSubmit={handleSearch}>
-                <input type="text" value={keyword} onChange={handleKeywordChange} placeholder="..." disabled={loading} required></input>
-                <button type="submit" disabled={loading}>Search</button><br />
-                {loading ? "Searching..." : ""}
-            </form>
-            <div>
-                {error && (
+            <main>
+                <section className="containerSearch">
+                    <h1>Search Menu</h1>
+                    <form onSubmit={handleSearch}>
+                        <div className="searchPlaceholder">
+                            <input type="text" value={keyword} onChange={handleKeywordChange} placeholder="..." disabled={loading} required></input>
+                            <button type="submit" disabled={loading}>Search</button><br />
+                            {loading ? "Searching..." : ""}
+                        </div>
+                    </form>
                     <div>
-                        {error}
+                        {error && (
+                            <div>
+                                {error}
+                            </div>
+                        )}
                     </div>
-                )}
-            </div>
-            <div>
-                <MenuItemList menuItems={result} />
-            </div>
+                    <div>
+                        <MenuItemList menuItems={result} />
+                    </div>
+                </section>
+            </main>
         </>
 
     )

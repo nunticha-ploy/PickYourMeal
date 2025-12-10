@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from '../components/Header';
+import '../components/page.css';
 
 
 function CreateBookmarkPage() {
@@ -71,16 +72,20 @@ function CreateBookmarkPage() {
     return (
         <>
             <Header />
-            <h2>Create New Bookmark</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Bookmark Name:</label>
-                    <input type="text" value={bookmarkName} onChange={handleBookmarkNameChange} disabled={submit} required />
-                </div>
-                <div>
-                    <button type="submit" disabled={submit}>Submit </button>
-                </div>
-            </form>
+            <main>
+                <section className="containerSearch">
+                    <h1>Create New Bookmark</h1>
+                    <form onSubmit={handleSubmit}>
+                        <div className="searchPlaceholder">
+                            <label>Bookmark Name:</label>
+                            <input type="text" value={bookmarkName} onChange={handleBookmarkNameChange} disabled={submit} required />
+                        </div>
+                        <div>
+                            <button type="submit" disabled={submit}>Submit </button>
+                        </div>
+                    </form>
+                </section>
+            </main>
         </>
     );
 }

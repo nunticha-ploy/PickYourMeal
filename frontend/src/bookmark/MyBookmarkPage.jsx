@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import MenuItemList from "../menu/MenuItemList";
 import { useNavigate, useLocation } from "react-router-dom";
 import Header from '../components/Header';
+import '../components/page.css';
 
 function MyBookmarkPage() {
     const [bookmarks, setBookmarks] = useState([]);
@@ -51,31 +52,37 @@ function MyBookmarkPage() {
 
     return (
         <>
-        <Header/>
-            <h2>My Bookmark</h2>
-            <div>
-                {loading ? "Searching..." : ""}
-            </div>
-            <div>
-                {error && (
+            <Header />
+            <main>
+                <section className="containerSearch">
+                    <h1>My Bookmark</h1>
                     <div>
-                        {error}
+                        {loading ? "Searching..." : ""}
                     </div>
-                )}
-            </div>
-            <div>
-                {bookmarks.length > 0 ? (
-                    bookmarks.map((bookmark) => (
-                        <div key={bookmark._id}>
-                            <h3>{bookmark.name}</h3>
-                            <MenuItemList menuItems={bookmark.menuItems} />
+                    <div>
+                        {error && (
+                            <div>
+                                {error}
+                            </div>
+                        )}
+                    </div>
+                    <div>
+                        {bookmarks.length > 0 ? (
+                            bookmarks.map((bookmark) => (
+                                <div key={bookmark._id}>
+                                    <h3>{bookmark.name}</h3>
+                                    <MenuItemList menuItems={bookmark.menuItems} />
+                                </div>
+                            ))
+                        ) : (
+                            <p>No bookmark</p>
+                        )}
+                        <div className="bookmark">
+                            <button type="button" onClick={() => navigate("/create-bookmark")} >Create new bookmark</button>
                         </div>
-                    ))
-                ) : (
-                    <p>No bookmark</p>
-                )}
-                <button type="button" onClick={() => navigate("/create-bookmark")} >Create new bookmark</button>
-            </div>
+                    </div>
+                </section>
+            </main>
         </>
 
     )

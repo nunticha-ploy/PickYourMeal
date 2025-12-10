@@ -79,12 +79,16 @@ function OTPVerifyPage() {
     return (
         <>
             <Header />
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <label>Email: <input type="email" value={email} readOnly /></label><br />
-                <label>OTP: <input type="text" value={otp} onChange={handleOtpChange} disabled={submit} /></label><br />
-                <button type="submit" disabled={submit}>Submit</button>
-            </form>
+            <main>
+                <section className="searchPlaceholder">
+                    <h1>Login</h1>
+                    <form onSubmit={handleSubmit} className="searchPlaceholder">
+                        <label>Email: <input type="email" value={email} readOnly /></label><br />
+                        <label>OTP: <input type="text" value={otp} onChange={handleOtpChange} disabled={submit} /></label><br />
+                        <button type="submit" disabled={submit}>Submit</button>
+                    </form>
+                </section>
+            </main>
         </>
     )
 
