@@ -21,7 +21,7 @@ function LogInPage() {
         setSubmit(true);
 
         try {
-            const response = await fetch(`${import.meta.env.API_URL}/users/login`, {
+            const response = await fetch("http://localhost:3000/users/login", {
                 method: "POST",
                 credentials: "include",
                 headers: {
@@ -77,7 +77,7 @@ function LogInPage() {
             <main>
                 <section className="containerSearch">
                     <h1>Login</h1>
-                    <form onSubmit={handleSubmit}  className="searchPlaceholder">
+                    <form onSubmit={handleSubmit} className="searchPlaceholder">
                         <label>Email: <input type="email" value={email} onChange={handleEmailChange} disabled={submit} required /></label><br />
                         <label>Password: <input type="password" value={password} onChange={handlePasswordChange} disabled={submit} required /></label><br />
                         <button type="submit" disabled={submit}>Login</button>

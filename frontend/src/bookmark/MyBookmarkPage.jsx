@@ -19,7 +19,7 @@ function MyBookmarkPage() {
             setError("");
 
             try {
-                const response = await fetch(`${import.meta.env.API_URL}/users/me`, {
+                const response = await fetch("http://localhost:3000/users/me", {
                     method: "GET",
                     credentials: "include",
                     headers: {

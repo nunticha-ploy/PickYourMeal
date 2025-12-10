@@ -7,8 +7,8 @@ const { userModelRoute, userRoute } = require("./modules/users/users-routes");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
-const port = process.env.PORT || 3000;
-const hostname = "0.0.0.0";
+const port = 3000;
+const hostname = "localhost";
 
 const server = express();
 
