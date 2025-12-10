@@ -9,6 +9,7 @@ import SearchMenuItemPage from './components/SearchMenuPage';
 import MenuItemDetailPage from './components/MenuItemDetailPage';
 import RandomMenuPage from './components/RandomMenuPage';
 import MyBookmarkPage from './components/MyBookmarkPage';
+import CreateBookmarkPage from './components/CreateBookmarkPage';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
       <Route path="/menu-detail" element= {<MenuItemDetailPage/>}/>
       <Route path="/random-menu" element= {<RandomMenuPage/>}/>
       <Route path="/mybookmark" element= {<MyBookmarkPage/>}/>
+      <Route path="/create-bookmark" element= {<CreateBookmarkPage/>}/>
 
     </Routes>
     </BrowserRouter>

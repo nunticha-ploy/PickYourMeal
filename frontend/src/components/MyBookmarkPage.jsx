@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import MenuItemList from "./MenuItemList";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function MyBookmarkPage() {
     const [bookmarks, setBookmarks] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const location = useLocation();
 
+    const navigate = useNavigate();
 
     useEffect(() => {
 
@@ -41,7 +44,7 @@ function MyBookmarkPage() {
         };
         fetchBookmark();
 
-    }, []);
+    }, [location]);
 
 
 
@@ -67,8 +70,9 @@ function MyBookmarkPage() {
                         </div>
                     ))
                 ) : (
-                    <p></p>
+                    <p>No bookmark</p>
                 )}
+                <button type="button" onClick={() => navigate("/create-bookmark")} >Create new bookmark</button>
             </div>
         </>
 

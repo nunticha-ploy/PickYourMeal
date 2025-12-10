@@ -48,6 +48,40 @@ userRoute.get("/users/me", authorize(["admin", "user"]), async (req, res) => {
     return res.json(foundUserId);
 });
 
+//create new bookmarks 
+userRoute.post("/users/create/bookmark", authorize(["admin", "user"]), createBookmarkRules, checkValidation, async (req, res) => {
+
+    const id = req.account.id;
+    const name = req.body.name;
+    const menuItems = req.body.menuItems;
+    const isAdmin = req.account.roles.includes("admin");
+    const isOwner = req.account.id === id;
+
+    const foundUserId = await userModel.findById(id);
+
+    if (!foundUserId) {
+        return res.status(404).json({ message: "user not found" })
+    }
+
+    if (!isAdmin && !isOwner) {
+        return res.status(401).json({
+            errorMessage: "Only admin is allow to access others account"
+        })
+    }
+
+    const createNewBookmark = await userModel.findByIdAndUpdate(
+        id,
+        { $push: { bookmarks: { name: name, menuItems: menuItems } } },
+        { new: true }
+    );
+
+    if (!createNewBookmark) {
+        return res.status(500).json({ message: "Cannot create new bookmark" });
+    } else {
+        return res.json({ createNewBookmark, message: "Successfully created new bookmark" });
+    }
+});
+
 
 // get user by id
 
