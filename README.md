@@ -31,3 +31,5 @@ Phase 5:
 - Add Role-Based Access Control (RBAC)
 - Update Backend Routes for authorization
 - Add Authentication Flow in Frontend but logout still not working
+- Change error return type 
+- Test Register and Login with valid and invalid credentials
