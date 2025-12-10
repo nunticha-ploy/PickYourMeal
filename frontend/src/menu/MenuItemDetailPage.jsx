@@ -1,6 +1,6 @@
-import Button from "./Button";
+import Button from "../components/Button";
 import { useLocation } from "react-router-dom";
-import { useBookmarkContext } from "./BookmarkContext";
+import { useBookmarkContext } from "../bookmark/BookmarkContext";
 
 const MenuItemDetailPage = () => {
     const location = useLocation();

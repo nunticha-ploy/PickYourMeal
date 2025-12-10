@@ -1,5 +1,5 @@
-import Button from "./Button";
-import { useBookmarkContext } from "./BookmarkContext";
+import Button from "../components/Button";
+import { useBookmarkContext } from "../bookmark/BookmarkContext";
 import { useNavigate } from "react-router-dom";
 
 const MenuItem = ({ menuItem }) => {

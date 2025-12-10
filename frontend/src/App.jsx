@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import RegisterPgae from './components/RegisterPage';
-import LogInPage from './components/LoginPage';
-import OTPVerifyPage from './components/OTPVerifyPage';
+import RegisterPgae from './user/RegisterPage';
+import LogInPage from './user/LoginPage';
+import OTPVerifyPage from './user/OTPVerifyPage';
 import Home from './components/Home';
-import SearchMenuItemPage from './components/SearchMenuPage';
-import MenuItemDetailPage from './components/MenuItemDetailPage';
-import RandomMenuPage from './components/RandomMenuPage';
-import MyBookmarkPage from './components/MyBookmarkPage';
-import CreateBookmarkPage from './components/CreateBookmarkPage';
+import SearchMenuItemPage from './menu/SearchMenuPage';
+import MenuItemDetailPage from './menu/MenuItemDetailPage';
+import RandomMenuPage from './menu/RandomMenuPage';
+import MyBookmarkPage from './bookmark/MyBookmarkPage';
+import CreateBookmarkPage from './Bookmark/CreateBookmarkPage';
 
 function App() {
 

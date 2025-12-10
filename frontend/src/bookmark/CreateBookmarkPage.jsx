@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 function CreateBookmarkPage() {
     const navigate = useNavigate();
     const [bookmarkName, setBookmarkName] = useState("");

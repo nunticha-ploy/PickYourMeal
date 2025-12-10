@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import MenuItemList from "./MenuItemList";
+import MenuItemList from "../menu/MenuItemList";
 import { useNavigate, useLocation } from "react-router-dom";
 
 function MyBookmarkPage() {
