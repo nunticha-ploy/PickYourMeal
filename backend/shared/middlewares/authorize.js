@@ -20,7 +20,12 @@ const authStrategies = {
 function authorize(requiredRoles = ["user"]) {
   function authorizeMiddleware(req, res, next) {
     try {
-      const encoded = req.get("Authorization");
+      let encoded = req.get("Authorization");
+
+      if (!encoded && req.cookies && req.cookies.token) {
+        encoded = `Bearer ${req.cookies.token}`;
+      }
+
       const decoded = decodeToken(encoded);
       if (!decoded || !decoded.roles) {
         return res.status(401).json({

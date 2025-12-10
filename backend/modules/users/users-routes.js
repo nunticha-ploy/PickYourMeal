@@ -28,6 +28,26 @@ userRoute.get("/users", authorize(["admin"]), async (req, res) => {
     }
 });
 
+//get me
+userRoute.get("/users/me", authorize(["admin", "user"]), async (req, res) => {
+    const id = req.account.id;
+    const foundUserId = await userModel.findById(id);
+    const isAdmin = req.account.roles.includes("admin");
+    const isOwner = req.account.id === id;
+
+    if (!foundUserId) {
+        return res.status(404).json({ message: "User not found" });
+    }
+
+    if (!isAdmin && !isOwner) {
+        return res.status(401).json({
+            errorMessage: "Only admin is allow to access others account"
+        })
+    }
+
+    return res.json(foundUserId);
+});
+
 
 // get user by id
 
@@ -40,7 +60,7 @@ userRoute.get("/users/:id", authorize(["admin", "user"]), async (req, res) => {
 
     if (!foundUserId) {
         return res.status(404).json({ message: "User not found" });
-    } 
+    }
 
     if (!isAdmin && !isOwner) {
         return res.status(401).json({
@@ -330,7 +350,7 @@ userRoute.post("/users/verify-login", verifyLoginRules, checkValidation, async (
 });
 
 //user logout
-userRoute.post("/users/logout", (req, res) => {
+userRoute.post("/users/logout", async (req, res) => {
     res.clearCookie("token", {
         httpOnly: true,
         secure: false,
@@ -338,6 +358,7 @@ userRoute.post("/users/logout", (req, res) => {
 
     res.json({ message: "Logout successful" });
 });
+
 
 
 

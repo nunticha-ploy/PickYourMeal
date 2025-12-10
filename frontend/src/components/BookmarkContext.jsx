@@ -1,22 +1,22 @@
 import { createContext, useContext, useReducer } from "react";
 
 const bookMarkReducer = (state, action) => {
-    switch (action.type) {
-      case "ADD":
-        return [...state, action.payload];
-      case "REMOVE":
-        return state.filter(
-          (menuItem) => menuItem._id !== action.payload._id
-        );
-      default:
-        return state;
-    }
-  };
+  switch (action.type) {
+    case "ADD":
+      return [...state, action.payload];
+    case "REMOVE":
+      return state.filter(
+        (menuItem) => menuItem._id !== action.payload._id
+      );
+    default:
+      return state;
+  }
+};
 
 const defaultValue = {
   bookmark: [],
-  addMenuItem: () => {},
-  removeMenuItem: () => {},
+  addMenuItem: () => { },
+  removeMenuItem: () => { },
 };
 
 const BookmarkContext = createContext(defaultValue);

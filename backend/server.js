@@ -5,6 +5,7 @@ const { menuItemsRoute } = require("./modules/menuItems/menuItems-routes");
 const connectDB = require("./shared/middlewares/connect-db");
 const { userModelRoute, userRoute } = require("./modules/users/users-routes");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 const port = 3000;
 const hostname = "localhost";
@@ -19,6 +20,8 @@ server.use(cors({
 // built-in middlewares to parse request body in application-level
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
+
+server.use(cookieParser());
 
 //connectDB middleware
 server.use(connectDB);
