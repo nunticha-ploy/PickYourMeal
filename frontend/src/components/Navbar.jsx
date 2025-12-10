@@ -11,7 +11,7 @@ function Navbar() {
                 <li onClick={() => navigate("/")} >Home</li>
                 <li onClick={() => navigate("/search-menu")} >Search</li>
                 <li onClick={() => navigate("/random-menu")} >Random</li>
-                <li onClick={() => navigate("/mybookmark")} >my bookmark</li>
+                <li onClick={() => navigate("/mybookmark")} >Bookmark</li>
                 <li><LogOutButton /></li>
             </ul>
         </nav>

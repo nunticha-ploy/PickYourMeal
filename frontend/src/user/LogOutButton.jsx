@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function LogOutButton() {
     const [logout, setLogout] = useState(false);
+    const [isLogIn, setIsLogin] = useState(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const user = localStorage.getItem("user");
+        setIsLogin(!!user);
+
+    }, []);
 
     const handleLogOut = async (e) => {
         setLogout(true);
@@ -20,6 +27,7 @@ function LogOutButton() {
             if (response.ok || response.status === 200) {
                 
                 localStorage.removeItem("user");
+                setIsLogin(false);
 
                 alert("Logout successful");
                 navigate("/login");
@@ -58,9 +66,18 @@ function LogOutButton() {
         }
     };
 
+    const handleLogIn = (e) => {
+        navigate("./login");
+    }
+
     return (
         <>
+        {isLogIn ? (
             <button onClick={handleLogOut} disabled={logout}>Logout</button>
+        ): (
+            <button onClick={handleLogIn} >Login</button>
+        )}
+            
         </>
     )
 
