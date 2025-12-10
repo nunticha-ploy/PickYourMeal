@@ -26,7 +26,7 @@ function registerPage() {
         setSubmit(true);
 
         try {
-            const response = await fetch("http://localhost:3000/users/register", {
+            const response = await fetch(`${import.meta.env.API_URL}/users/register`, {
                 method: "POST",
                 credentials: "include",
                 headers: {

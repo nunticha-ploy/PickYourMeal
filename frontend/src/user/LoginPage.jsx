@@ -21,7 +21,7 @@ function LogInPage() {
         setSubmit(true);
 
         try {
-            const response = await fetch("http://localhost:3000/users/login", {
+            const response = await fetch(`${import.meta.env.API_URL}/users/login`, {
                 method: "POST",
                 credentials: "include",
                 headers: {

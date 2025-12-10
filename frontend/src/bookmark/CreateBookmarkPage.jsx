@@ -16,9 +16,8 @@ function CreateBookmarkPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setSubmit(true);
-
         try {
-            const response = await fetch("http://localhost:3000/users/create/bookmark", {
+            const response = await fetch(`${import.meta.env.API_URL}/users/create/bookmark`, {
                 method: "POST",
                 credentials: "include",
                 headers: {
