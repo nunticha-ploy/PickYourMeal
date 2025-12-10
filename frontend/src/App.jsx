@@ -9,7 +9,6 @@ import SearchMenuItemPage from './menu/SearchMenuPage';
 import MenuItemDetailPage from './menu/MenuItemDetailPage';
 import RandomMenuPage from './menu/RandomMenuPage';
 import MyBookmarkPage from './bookmark/MyBookmarkPage';
-import CreateBookmarkPage from './bookmark/CreateBookmarkPage';
 
 function App() {
 
