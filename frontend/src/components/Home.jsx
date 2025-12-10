@@ -1,5 +1,6 @@
-import Navbar from './Navbar';
 import { useNavigate } from 'react-router-dom';
+import Header from './Header';
+import './page.css';
 
 function Home() {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -7,11 +8,10 @@ function Home() {
 
     return (
         <>
-            <header>
-                <Navbar />
-            </header>
+            <Header />
             <main>
-                <button onClick={() => navigate('/mybookmark')}>My Bookmark</button>
+                <section className="containerHome" >
+                </section>
             </main>
         </>
     );

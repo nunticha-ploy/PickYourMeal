@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from '../components/Header';
 
 
 function CreateBookmarkPage() {
@@ -69,11 +70,12 @@ function CreateBookmarkPage() {
 
     return (
         <>
+            <Header />
             <h2>Create New Bookmark</h2>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Bookmark Name:</label>
-                    <input type="text" value={bookmarkName} onChange={handleBookmarkNameChange} disabled={submit} required/>
+                    <input type="text" value={bookmarkName} onChange={handleBookmarkNameChange} disabled={submit} required />
                 </div>
                 <div>
                     <button type="submit" disabled={submit}>Submit </button>

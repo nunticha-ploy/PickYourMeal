@@ -1,0 +1,67 @@
+/*Header*/
+.containerHeader {
+    background-color: #fffcf3;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 2%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.logo {
+    margin-left: 25%;
+}
+
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding-inline-start: 0;
+    margin: 0;
+}
+
+.nav li {
+    color: #ff9c1a;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-width: 100px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.nav li:hover {
+    color: #0b0b0b !important;
+    transform: scale(1.1);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+}
+
+.nav li:active {
+    color: black;
+}
+
+.nav li:visited {
+    color: black;
+}
+
+/*HomePage*/
+.containerHome {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5%;
+}
+
+
+

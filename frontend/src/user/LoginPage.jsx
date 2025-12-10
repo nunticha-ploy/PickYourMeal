@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from '../components/Header';
 
 function LogInPage() {
     const [email, setEmail] = useState("");
@@ -72,10 +73,11 @@ function LogInPage() {
 
     return (
         <>
+            <Header />
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
-                <label>Email: <input type="email" value={email} onChange={handleEmailChange} disabled={submit} required/></label><br />
-                <label>Password: <input type="password" value={password} onChange={handlePasswordChange} disabled={submit} required/></label><br />
+                <label>Email: <input type="email" value={email} onChange={handleEmailChange} disabled={submit} required /></label><br />
+                <label>Password: <input type="password" value={password} onChange={handlePasswordChange} disabled={submit} required /></label><br />
                 <button type="submit" disabled={submit}>Login</button>
                 <p>Don't have an account? <button type="button" onClick={() => navigate("/register")} >Register</button></p>
             </form>

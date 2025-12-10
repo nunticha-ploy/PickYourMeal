@@ -1,21 +1,19 @@
 import LogOutButton from '../user/LogOutButton';
 import { useNavigate } from 'react-router-dom';
+import './page.css';
 
 function Navbar() {
-    const user = JSON.parse(localStorage.getItem("user"));
     const navigate = useNavigate();
 
     return (
         <nav>
-            {user && (
-                <>
-                    <span>Hello, {user.name}</span>
-                    <button type="button" onClick={() => navigate("/mybookmark")} >my bookmark</button>
-                    <button type="button" onClick={() => navigate("/search-menu")} >Search</button>
-                    <button type="button" onClick={() => navigate("/random-menu")} >Random</button>
-                    <LogOutButton />
-                </>
-            )}
+            <ul className="nav">
+                <li onClick={() => navigate("/")} >Home</li>
+                <li onClick={() => navigate("/search-menu")} >Search</li>
+                <li onClick={() => navigate("/random-menu")} >Random</li>
+                <li onClick={() => navigate("/mybookmark")} >my bookmark</li>
+                <li><LogOutButton /></li>
+            </ul>
         </nav>
     );
 }

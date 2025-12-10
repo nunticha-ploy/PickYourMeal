@@ -25,7 +25,6 @@ function App() {
       <Route path="/random-menu" element= {<RandomMenuPage/>}/>
       <Route path="/mybookmark" element= {<MyBookmarkPage/>}/>
       <Route path="/create-bookmark" element= {<CreateBookmarkPage/>}/>
-
     </Routes>
     </BrowserRouter>
 

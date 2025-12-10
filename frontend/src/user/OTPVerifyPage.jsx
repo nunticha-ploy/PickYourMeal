@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Header from '../components/Header';
 
 function OTPVerifyPage() {
     const [otp, setOtp] = useState("");
@@ -8,7 +9,7 @@ function OTPVerifyPage() {
     const location = useLocation();
 
     let email = "";
-    if(location.state.email){
+    if (location.state.email) {
         email = location.state.email;
     }
 
@@ -77,6 +78,7 @@ function OTPVerifyPage() {
 
     return (
         <>
+            <Header />
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
                 <label>Email: <input type="email" value={email} readOnly /></label><br />

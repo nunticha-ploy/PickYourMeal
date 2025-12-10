@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MenuItemList from "./MenuItemList";
+import Header from '../components/Header';
 
 function RandomMenuPage() {
     const [result, setResult] = useState([]);
@@ -41,9 +42,10 @@ function RandomMenuPage() {
 
     return (
         <>
+            <Header />
             <h2>Random Menu</h2>
             <form onSubmit={handleRandom}>
-                <button type="submit" disabled={loading}>Random</button><br/>
+                <button type="submit" disabled={loading}>Random</button><br />
                 {loading ? "Randoming..." : ""}
             </form>
             <div>

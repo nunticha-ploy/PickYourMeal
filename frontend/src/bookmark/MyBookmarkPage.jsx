@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import MenuItemList from "../menu/MenuItemList";
 import { useNavigate, useLocation } from "react-router-dom";
+import Header from '../components/Header';
 
 function MyBookmarkPage() {
     const [bookmarks, setBookmarks] = useState([]);
@@ -50,6 +51,7 @@ function MyBookmarkPage() {
 
     return (
         <>
+        <Header/>
             <h2>My Bookmark</h2>
             <div>
                 {loading ? "Searching..." : ""}
