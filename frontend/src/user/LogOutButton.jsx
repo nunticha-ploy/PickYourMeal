@@ -73,7 +73,7 @@ function LogOutButton() {
     return (
         <>
             {isLogIn ? (
-                <button onClick={handleLogOut} disabled={logout}>Logout</button>
+                <button className="logoutButton" onClick={handleLogOut} disabled={logout}>Logout</button>
             ) : (
                 <button className="logoutButton" onClick={handleLogIn} >Login</button>
             )}

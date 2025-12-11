@@ -375,7 +375,8 @@ userRoute.post("/users/verify-login", verifyLoginRules, checkValidation, async (
 
     res.cookie("token", genToken, {
         httpOnly: true,
-        secure: false,
+        secure: true,
+        sameSite: 'none',
         maxAge: 1000 * 60 * 50
     });
 
@@ -388,6 +389,7 @@ userRoute.post("/users/logout", async (req, res) => {
     res.clearCookie("token", {
         httpOnly: true,
         secure: false,
+        sameSite: 'none',
     });
 
     res.json({ message: "Logout successful" });
