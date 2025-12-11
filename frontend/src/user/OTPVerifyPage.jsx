@@ -22,7 +22,7 @@ function OTPVerifyPage() {
         setSubmit(true);
 
         try {
-            const response = await fetch("http://localhost:3000/users/verify-login", {
+            const response = await fetch(`${import.meta.env.API_URL}/users/verify-login`, {
                 method: "POST",
                 credentials: "include",
                 headers: {
