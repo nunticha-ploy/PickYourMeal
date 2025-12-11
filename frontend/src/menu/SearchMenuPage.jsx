@@ -29,7 +29,7 @@ function SearchMenuItemPage() {
         setSearch(true);
 
         try {
-            const response = await fetch(`${import.meta.env.API_URL}/menuItems/search?keyword=${encodeURIComponent(keyword)}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/menuItems/search?keyword=${encodeURIComponent(keyword)}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"

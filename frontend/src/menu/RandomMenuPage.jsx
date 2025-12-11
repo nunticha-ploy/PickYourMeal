@@ -16,7 +16,7 @@ function RandomMenuPage() {
         setError("");
 
         try {
-            const response = await fetch(`${import.meta.env.API_URL}/menuItems/random`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/menuItems/random`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
