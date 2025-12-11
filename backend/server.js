@@ -13,7 +13,8 @@ const hostname = "0.0.0.0";
 const server = express();
 
 server.use(cors({
-    origin: ['http://localhost:5173', 'https://your-app.vercel.app'],
+    origin: ['http://localhost:5173',
+        'https://your-app.vercel.app'],
     credentials: true
 }));
 
