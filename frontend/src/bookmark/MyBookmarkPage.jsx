@@ -27,9 +27,8 @@ function MyBookmarkPage() {
                     }
                 });
 
-                const data = await response.json();
-
                 if (response.ok || response.status === 200) {
+                    const data = await response.json();
                     setBookmarks(data.bookmarks);
                     setError("");
                 } else {
