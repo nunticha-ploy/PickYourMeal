@@ -8,7 +8,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
 const port = 3000;
-const hostname = "localhost";
+const hostname = "0.0.0.0";
 
 const server = express();
 

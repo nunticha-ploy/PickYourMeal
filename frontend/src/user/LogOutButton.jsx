@@ -25,7 +25,7 @@ function LogOutButton() {
             });
 
             if (response.ok || response.status === 200) {
-                
+
                 localStorage.removeItem("user");
                 setIsLogin(false);
 
@@ -72,12 +72,12 @@ function LogOutButton() {
 
     return (
         <>
-        {isLogIn ? (
-            <button onClick={handleLogOut} disabled={logout}>Logout</button>
-        ): (
-            <button onClick={handleLogIn} >Login</button>
-        )}
-            
+            {isLogIn ? (
+                <button onClick={handleLogOut} disabled={logout}>Logout</button>
+            ) : (
+                <button className="logoutButton" onClick={handleLogIn} >Login</button>
+            )}
+
         </>
     )
 
