@@ -1,3 +1,8 @@
+Project Title: Pick Your Meal
+
+Project Overview: This project was created based on the concept of "What should I eat today?" - a question I find myself asking frequently, and one my friends often pose to me as well. This web application is designed for people who enjoy cooking. Users can randomize menu recipes or search through the collection, with the ability to bookmark their favorite recipes to their personal account for easy access later.
+
+
 Phase 2:
 -  Define data structure (Entities and their relationship)
 -  Created JSON files with example data for all entities (menuItem is a dataset from kaggle)
