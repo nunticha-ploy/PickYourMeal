@@ -15,7 +15,8 @@ const server = express();
 server.use(cors({
     origin: ['http://localhost:5173',
         'https://pick-your-meal.vercel.app'],
-    credentials: true
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }));
 
 // built-in middlewares to parse request body in application-level
